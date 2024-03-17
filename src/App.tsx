@@ -1,12 +1,11 @@
 import React from 'react';
-import style from './App.module.scss';
 
 function App() {
-  return (
-    <div className={style.App}>
-
-    </div>
-  );
+    return (
+        <div>
+            <p>Здравствуйте!</p>
+        </div>
+    );
 }
 
 export default App;

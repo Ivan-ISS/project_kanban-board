@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 /* import { Loader } from "../loader/loader"; */
 import style from './layout.module.scss'
 
-export interface ILayoutProps {
+interface ILayoutProps {
     HeaderComponent: ReactNode;
     MainComponent: ReactNode;
     FooterComponent: ReactNode;

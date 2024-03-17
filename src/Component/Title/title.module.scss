@@ -1,0 +1,7 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.title {
+    font-size: $font-size-title;
+    color: $base-white;
+}

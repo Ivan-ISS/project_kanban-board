@@ -1,0 +1,28 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.footer {
+    min-height: 55px;
+    padding: 0px 20px;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $base-blue;
+
+    .taskCounter {
+        display: flex;
+        column-gap: 36px;
+    }
+}
+
+@media (max-width: 640px) {
+
+    .footer {
+        justify-content: end;
+
+        .taskCounter {
+            display: none;
+        }
+    }
+}

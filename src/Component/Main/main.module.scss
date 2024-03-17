@@ -1,0 +1,8 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.main {
+    height: 100%;
+    flex: 1 1 auto;
+    background: $base-blue-main;
+}

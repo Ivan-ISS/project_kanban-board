@@ -40,7 +40,12 @@ html,
 body {
     height: 100%;
     font-family: "Roboto", "helvetica", "arial", "verdana", "sans-serif";
-    font-size: 14px;
+    font-size: $font-size-base;
     font-weight: 400;
     line-height: normal;
+}
+
+#root {
+    height: 100%;
+    overflow: hidden;
 }

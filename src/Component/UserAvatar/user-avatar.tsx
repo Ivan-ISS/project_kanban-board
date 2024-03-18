@@ -1,7 +1,7 @@
 import React from 'react';
 import iconArrow from '../../images/svg/arrow-up.svg'
 import iconAvatar from '../../images/svg/user-avatar.svg'
-import style from './userAvatar.module.scss';
+import style from './user-avatar.module.scss';
 
 const useAvatar = () => {
 

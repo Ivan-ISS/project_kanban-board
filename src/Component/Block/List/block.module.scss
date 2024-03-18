@@ -1,0 +1,15 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.listBlocks {
+    display: flex;
+    column-gap: 24px;
+
+    .block {
+        width: 100%;
+        min-width: 282px;
+        background: $base-gray;
+        border-radius: 10px;
+        padding: 12px;
+    }
+}

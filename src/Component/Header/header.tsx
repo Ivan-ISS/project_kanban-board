@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './header.module.scss';
-import UserAvatar from "../UserAvatar/userAvatar";
+import UserAvatar from "../UserAvatar/user-avatar";
 import Title from "../Title/title";
 
 const Header = () => {

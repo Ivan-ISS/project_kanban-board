@@ -1,12 +1,10 @@
 import React from 'react';
-import style from './header.module.scss';
+import ListBlock from '../Block/List/list-block';
 
 const TaskBlocks = () => {
 
     return (
-        <div>
-            Something
-        </div>
+        <ListBlock />
     )
 }
 

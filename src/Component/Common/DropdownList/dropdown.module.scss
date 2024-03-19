@@ -1,0 +1,28 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.dropdownList {
+    position: relative;
+
+    .arrow {
+        padding: 8px;
+        background: $base-white;
+        border-radius: 5px;
+        text-align: end;
+    }
+    
+    .list {
+        position: absolute;
+        top: 41px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 100%;
+    
+        .item {
+            padding: 8px;
+            background: $base-white;
+        }
+    }
+}

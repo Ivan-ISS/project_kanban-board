@@ -4,6 +4,7 @@ import { IListBlockItem } from '../../../types/blocks-types';
 import ListTask from '../../Task/List/list-task';
 import ButtonAdd from '../../Common/ButtonAdd/button-add';
 import Input from '../../Common/Input/input';
+import DropdownList from '../../Common/DropdownList/dropdown-list';
 import { CanbanContext } from '../../Context/canban-context';
 
 const ListBlockItem = ({ title, idBlock }: IListBlockItem) => {
@@ -14,8 +15,13 @@ const ListBlockItem = ({ title, idBlock }: IListBlockItem) => {
             <div>{title}</div>
             <ListTask idBlock={idBlock}/>
             {
-                /* id === 1 &&  */addCard && addCard[idBlock]
+                idBlock === 1 && addCard && addCard[idBlock]
                 ? <Input idBlock={idBlock}/>
+                : null
+            }
+            {
+                idBlock !== 1 && addCard && addCard[idBlock]
+                ? <DropdownList idBlock={idBlock}/>
                 : null
             }
             <ButtonAdd idBlock={idBlock}/>

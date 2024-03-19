@@ -14,7 +14,7 @@ const ListTask = ({ idBlock }: IIdBlock) => {
                 return (
                     <>
                         {
-                            task.block === idBlock
+                            task.block === idBlock  // отображаем только те задачи, которые соответствуют текущему блоку (номеру блока)
                             ? <div key={index}><ListTaskItem block={task.block} id={task.id} name={task.name} description={task.description}/></div>
                             : null
                         }

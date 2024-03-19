@@ -15,9 +15,15 @@ const DropdownList = ({ idBlock }: IIdBlock) => {
             <ul className={style.list}>
                     {tasksList?.map((task, index) => {
                         return (
-                            <div className={style.wrapItem} key={index}>
-                                <DropdownListItem text={task.block} idBlock={idBlock} id={task.id}/>
-                            </div>
+                            <>
+                                {task.block === idBlock - 1 // отображаем в списке только те задачи, которые соответствуют предыдущему блоку (номеру блока)
+                                ?
+                                    <div className={style.wrapItem} key={index}>
+                                        <DropdownListItem text={task.name} idBlock={idBlock} id={task.id}/>
+                                    </div>
+                                : null
+                                }
+                            </>
                         )}
                     )}
             </ul>

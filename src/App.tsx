@@ -17,13 +17,13 @@ function App() {
     const handlerClickAddTask = (idBlock: number) => {
         setaddCard((prevState) => ({ ...prevState, [idBlock]: !prevState[idBlock] }));
         /* setaddCard(prevValue => !prevValue) */
-        console.log(addCard)
+        console.log('Состояние кнопок изменилось:', addCard)
     }
 
     const handleTasksListValue = (tasksList: IListTaskItem[] | undefined) => {
-      setTasksList(tasksList)
-      console.log(tasksList)
-  }
+        setTasksList(tasksList)
+        console.log('tasksList изменился:', tasksList)
+    }
   
     return (
         <BrowserRouter>

@@ -3,7 +3,7 @@ import style from './dropdown.module.scss';
 import { CanbanContext } from '../../Context/canban-context';
 
 interface IDropdownListItem {
-    text: number,
+    text: string,
     idBlock: number,
     id: number
 }

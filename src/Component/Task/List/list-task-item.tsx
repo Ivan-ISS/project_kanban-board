@@ -6,7 +6,7 @@ const ListTaskItem = ({ block, id, name, description }: IListTaskItem) => {
 
    return (
         <div className={style.task} data-attr={id}>
-            {block}
+            {name}
         </div>
    )
 }

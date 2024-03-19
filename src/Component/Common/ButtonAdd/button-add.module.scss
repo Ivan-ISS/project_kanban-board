@@ -1,0 +1,10 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.buttonAdd {
+    background: transparent;
+    align-self: flex-start;
+    display: flex;
+    column-gap: 3px;
+    color: $base-gray-text;
+}

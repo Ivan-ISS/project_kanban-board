@@ -1,4 +1,8 @@
+export interface IIdBlock {
+    idBlock: number
+}
+
 export interface IListBlockItem {
     title: string;
-    id: number;
+    idBlock: number;
 }

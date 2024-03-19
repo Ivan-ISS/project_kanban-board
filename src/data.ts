@@ -6,10 +6,10 @@ interface IInscriptionsFooter {
 }
 
 export const blocks: IListBlockItem[] = [
-    {title: 'Backlog', id: 1},
-    {title: 'Ready', id: 2},
-    {title: 'in Progress', id: 3},
-    {title: 'Finished', id: 4}
+    {title: 'Backlog', idBlock: 1},
+    {title: 'Ready', idBlock: 2},
+    {title: 'in Progress', idBlock: 3},
+    {title: 'Finished', idBlock: 4}
 ]
 
 export const tasksMock: IListTaskItem[] = [
@@ -30,6 +30,24 @@ export const tasksMock: IListTaskItem[] = [
         id: 3,
         name: 'Task 3',
         description: 'Description 3'
+    },
+    {
+        block: 4,
+        id: 4,
+        name: 'Task 4',
+        description: 'Description 4'
+    },
+    {
+        block: 4,
+        id: 5,
+        name: 'Task 5',
+        description: 'Description 5'
+    },
+    {
+        block: 2,
+        id: 6,
+        name: 'Task 6',
+        description: 'Description 6'
     }
 ]
 

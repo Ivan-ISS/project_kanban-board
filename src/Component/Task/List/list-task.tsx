@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import style from './task.module.scss';
-import { tasksMock } from '../../../data';
+import { IIdBlock } from '../../../types/blocks-types';
+// import { tasksMock } from '../../../data';
 import ListTaskItem from './list-task-item';
+import { CanbanContext } from '../../Context/canban-context';
 
-const ListTask = () => {
+const ListTask = ({ idBlock }: IIdBlock) => {
+    const { tasksList } = useContext(CanbanContext)
 
     return (
-        <div className={style.listBlocks}>
-            {tasksMock.map((task) => {
+        <div className={style.listTask}>
+            {tasksList?.map((task, index) => {
                 return (
-                    <ListTaskItem block={task.block} id={task.id} name={task.name} description={task.description}/>
+                    <>
+                        {
+                            task.block === idBlock
+                            ? <div key={index}><ListTaskItem block={task.block} id={task.id} name={task.name} description={task.description}/></div>
+                            : null
+                        }
+                    </>
                 )}
             )}
         </div>

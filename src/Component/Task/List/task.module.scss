@@ -1,0 +1,14 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.listTask {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+}
+
+.task {
+    padding: 8px;
+    border-radius: 5px;
+    background: $base-white;
+}

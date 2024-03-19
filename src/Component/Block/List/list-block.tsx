@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import style from './block.module.scss';
-import { blocks } from '../../../data';
+// import { blocks } from '../../../data';
 import ListBlockItem from './list-block-item';
+import { CanbanContext } from '../../Context/canban-context';
 
 const ListBlock = () => {
+    const { blocks } = useContext(CanbanContext)
 
     return (
         <div className={style.listBlocks}>
-            {blocks.map((block) => {
+            {blocks?.map((block, index) => {
                 return (
-                    <ListBlockItem title={block.title} id={block.id}/>
+                    <div className={style.wrapBlock} key={index}>
+                        <ListBlockItem title={block.title} idBlock={block.idBlock}/>
+                    </div>
                 )}
             )}
         </div>

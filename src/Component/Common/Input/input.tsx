@@ -16,7 +16,7 @@ const Input = ({ idBlock }: IIdBlock) => {
         if (event.key === 'Enter') {
             tasksList?.push({
                 block: idBlock,
-                id: 1,
+                id: tasksList.length + 1,
                 name: inputValue,
                 description: '',
             })
@@ -34,6 +34,7 @@ const Input = ({ idBlock }: IIdBlock) => {
                     value={inputValue}
                     onChange={handleChange}
                     onKeyDown={handleKeyPress}
+                    required
                 />
                 <label className={style.label}>Введите задачу...</label>
         </div>

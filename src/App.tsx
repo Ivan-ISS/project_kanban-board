@@ -22,7 +22,7 @@ function App() {
 
     const handleTasksListValue = (tasksList: IListTaskItem[] | undefined) => {
         setTasksList(tasksList)
-        localStorage.setItem('tasksListJSON', JSON.stringify(tasksList))
+        if (tasksList) localStorage.setItem('tasksListJSON', JSON.stringify(tasksList))
         console.log('tasksList изменился:', tasksList)
         console.log('inLocal', JSON.parse(localStorage.getItem('tasksListJSON')!))
     }

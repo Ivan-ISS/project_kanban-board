@@ -30,11 +30,9 @@ function App() {
     useEffect(() => {
         const dataFromLocalStorage = localStorage.getItem('tasksListJSON');
         const pars = dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : [];
-        const par = pars as IListTaskItem[]
-        console.log('local', par)
-        setTasksList(par)
-        // const pars = JSON.parse(localStorage.getItem('booksInShopBag'))
-        //setTasksList(JSON.parse(localStorage.getItem('tasksListJSON')!))
+        // const par = pars as IListTaskItem[]
+        console.log('local', pars)
+        setTasksList(pars)
     }, [])
   
     return (

@@ -9,12 +9,16 @@ import toArrayNumBlocks from '../../../utils/to-array-helper';
 import { CanbanContext } from '../../Context/canban-context';
 
 const ListBlockItem = ({ title, idBlock }: IListBlockItem) => {
-    const [arrayNumBlocks, setArrayNumBlocks] = useState<number[]>();
+    let [arrayNumBlocks, setArrayNumBlocks] = useState<number[]>();
     const { addCard, tasksList } = useContext(CanbanContext)
+
+    const dataFromLocalStorage = localStorage.getItem('tasksListJSON');
+    const pars = dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : [];
+    arrayNumBlocks = toArrayNumBlocks(pars)
 
     useEffect(() => {
         setArrayNumBlocks(toArrayNumBlocks(tasksList))        // Надо переделать переменную arrayNumBlocks из массива в map чтоли
-        console.log(arrayNumBlocks)
+        console.log(arrayNumBlocks)                           // useEffect становится не нужен, т.к. есть операции выше, которые выполняются каждый раз при рендере компонента
     },[addCard])
 
     return (

@@ -18,7 +18,7 @@ const Input = ({ idBlock }: IIdBlock) => {
                 block: idBlock,
                 id: tasksList.length + 1,
                 name: inputValue,
-                description: '',
+                description: 'Описание',
             })
             //console.log(tasksMock)
             if (handleTasksListValue) {handleTasksListValue(tasksList)}

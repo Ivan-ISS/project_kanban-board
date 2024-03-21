@@ -22,16 +22,17 @@ function App() {
 
     const handleTasksListValue = (tasksList: IListTaskItem[] | undefined) => {
         setTasksList(tasksList)
-        localStorage.setItem('tasksListJSON', JSON.stringify(tasksList));
+        localStorage.setItem('tasksListJSON', JSON.stringify(tasksList))
         console.log('tasksList изменился:', tasksList)
+        console.log('inLocal', JSON.parse(localStorage.getItem('tasksListJSON')!))
     }
 
     useEffect(() => {
         const dataFromLocalStorage = localStorage.getItem('tasksListJSON');
-        const pars = dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : null;
+        const pars = dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : [];
         const par = pars as IListTaskItem[]
-        console.log('local', par as IListTaskItem[])
-        setTasksList(par as IListTaskItem[])
+        console.log('local', par)
+        setTasksList(par)
         // const pars = JSON.parse(localStorage.getItem('booksInShopBag'))
         //setTasksList(JSON.parse(localStorage.getItem('tasksListJSON')!))
     }, [])

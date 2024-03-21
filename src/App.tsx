@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { IListTaskItem } from './types/tasks-types';
 import { IAddCard } from './types/selection-field';
@@ -22,8 +22,19 @@ function App() {
 
     const handleTasksListValue = (tasksList: IListTaskItem[] | undefined) => {
         setTasksList(tasksList)
+        localStorage.setItem('tasksListJSON', JSON.stringify(tasksList));
         console.log('tasksList изменился:', tasksList)
     }
+
+    useEffect(() => {
+        const dataFromLocalStorage = localStorage.getItem('tasksListJSON');
+        const pars = dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : null;
+        const par = pars as IListTaskItem[]
+        console.log('local', par as IListTaskItem[])
+        setTasksList(par as IListTaskItem[])
+        // const pars = JSON.parse(localStorage.getItem('booksInShopBag'))
+        //setTasksList(JSON.parse(localStorage.getItem('tasksListJSON')!))
+    }, [])
   
     return (
         <BrowserRouter>

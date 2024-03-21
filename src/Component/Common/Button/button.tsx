@@ -2,12 +2,11 @@ import React from "react";
 import style from './button.module.scss'
 // import { IIdBlock } from '../../../types/blocks-types';
 
-const ButtonAdd = () => {
+interface IButton {
+    handleClickBtn: () => void
+}
 
-    const handleClickBtn = () => {
-        localStorage.removeItem('tasksListJSON')
-        window.location.reload();
-    }
+const Button = ({ handleClickBtn }: IButton) => {
 
     return (
             <button className={style.buttonAdd} type="button" onClick={handleClickBtn}>
@@ -16,4 +15,4 @@ const ButtonAdd = () => {
     )
 }
        
-export default ButtonAdd
+export default Button

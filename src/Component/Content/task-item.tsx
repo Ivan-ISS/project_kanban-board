@@ -1,11 +1,10 @@
 import React from 'react';
+import Item from '../Task/Item/item';
 
 const TaskItem = () => {
 
     return (
-        <div>
-            Something else
-        </div>
+        <Item />
     )
 }
 

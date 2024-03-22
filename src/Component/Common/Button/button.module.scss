@@ -1,0 +1,21 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.button {
+    padding: 4px 8px;
+    border-radius: 5px;
+    background: $base-blue-main;
+    color: $base-white;
+}
+
+.button:disabled {
+    opacity: 0.5;
+}
+
+.button:enabled {
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: 2px 2px 4px #000;
+    }
+}

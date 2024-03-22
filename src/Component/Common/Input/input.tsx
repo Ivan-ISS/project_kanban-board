@@ -47,7 +47,7 @@ const Input = ({ idBlock }: IIdBlock) => {
     }
 
     return (
-        <div>
+        <div className={style.addTaskPanel}>
             <div className={style.form}>
                     <input
                         className={style.input}
@@ -58,8 +58,10 @@ const Input = ({ idBlock }: IIdBlock) => {
                     />
                     <label className={style.label}>Введите задачу...</label>
             </div>
-            <Button handleClickBtn={handleClickSubmit} name={"Submit"}/>
-            <Button handleClickBtn={handleClickCancel} name={"Cancel"}/>
+            <div className={style.btnPanel}>
+                <Button handleClickBtn={handleClickSubmit} name={"Submit"} disabled={inputValue === ''}/>
+                <Button handleClickBtn={handleClickCancel} name={"Cancel"}/>
+            </div>
         </div>
     )
 }

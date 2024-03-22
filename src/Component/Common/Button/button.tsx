@@ -4,13 +4,14 @@ import style from './button.module.scss'
 
 interface IButton {
     handleClickBtn: () => void,
-    name: string
+    name: string,
+    disabled?: boolean
 }
 
-const Button = ({ handleClickBtn, name }: IButton) => {
+const Button = ({ handleClickBtn, name, disabled }: IButton) => {
 
     return (
-            <button className={style.buttonAdd} type="button" onClick={handleClickBtn}>
+            <button className={style.button} type="button" onClick={handleClickBtn} disabled={disabled}>
                 {name}
             </button>
     )

@@ -25,7 +25,8 @@
 
     &:hover {
         color: $text-btn-hover;
-        font-weight: 700;
+        /* font-weight: 700; */
+        text-shadow: 0.2px 0.2px 0.2px #000, -0.2px -0.2px 0.2px #000, 0.2px -0.2px 0.2px #000, -0.2px 0.2px 0.2px #000;
     }
 
     .plus {

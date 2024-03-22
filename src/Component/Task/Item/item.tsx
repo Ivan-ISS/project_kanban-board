@@ -57,6 +57,20 @@ const TaskItem = () => {
             navigate(`/`)
     }
 
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                navigate(`/`)
+            }
+        }
+    
+        document.addEventListener('keydown', handleKeyDown)
+    
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown)
+        }
+      }, [])
+
     return (
         <div className={style.itemTask}>
             <div className={style.heading}>
@@ -65,7 +79,7 @@ const TaskItem = () => {
                     <img className={style.iconClose} src={iconClose} alt="close icon" />
                 </button>
             </div>
-            <textarea className={inputValue && inputValue === "This task has no description" ? style.description : style.descriptions} value={inputValue} onChange={(handleChange)} onKeyDown={handleKeyPress} />
+            <textarea className={inputValue === "This task has no description" ? style.description : style.descriptions} value={inputValue} onChange={(handleChange)} onKeyDown={handleKeyPress} />
         </div>
     )
 }

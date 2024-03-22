@@ -1,10 +1,37 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.itemTask {
+    width: 100%;
+    height: auto;
+    background: $base-white;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 22px 28px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 35px;
+
+    .heading {
+        display: flex;
+        justify-content: space-between;
+
+        .btnClose {
+            background: transparent;
+            cursor: pointer;
+        }
+    }
+}
+
 .description {
-    height: 700px;
-    color: red;
+    height: 100%;
+    opacity: 0.5;
     resize: none;
+    outline: none;
 }
 
 .descriptions {
-    height: 700px;
+    height: 100%;
     resize: none;
+    outline: none;
 }

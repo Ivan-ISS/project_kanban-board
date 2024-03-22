@@ -20,7 +20,7 @@ const Input = ({ idBlock }: IIdBlock) => {
             block: idBlock,
             id: tasksList.length + random(1, 10000),
             name: inputValue,
-            description: 'Описание',
+            description: 'This task has no description',
         })
         if (handleTasksListValue) {handleTasksListValue(tasksList)}
         if (handlerClickAddTask) {handlerClickAddTask(idBlock)}

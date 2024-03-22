@@ -4,6 +4,7 @@ import style from './input.module.scss'
 import { IIdBlock } from '../../../types/blocks-types';
 import { CanbanContext } from "../../Context/canban-context";
 import Button from "../Button/button";
+import { random } from "../../../utils/randomNum";
 
 const Input = ({ idBlock }: IIdBlock) => {
     const { tasksList, handleTasksListValue, handlerClickAddTask } = useContext(CanbanContext)
@@ -17,7 +18,7 @@ const Input = ({ idBlock }: IIdBlock) => {
         if (inputValue === '') return
         tasksList?.push({
             block: idBlock,
-            id: tasksList.length + 1,
+            id: tasksList.length + random(1, 10000),
             name: inputValue,
             description: 'Описание',
         })
@@ -35,7 +36,7 @@ const Input = ({ idBlock }: IIdBlock) => {
         if (event.key === 'Enter') {
             tasksList?.push({
                 block: idBlock,
-                id: tasksList.length + 1,
+                id: tasksList.length + random(1, 10000),
                 name: inputValue,
                 description: 'Описание',
             })

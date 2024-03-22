@@ -13,6 +13,7 @@ const TaskItem = () => {
 
     const item = tasksList?.find(item => item.id === numTaskId)
     const [inputValue, setInput] = useState(item?.description)
+    console.log('тута ', item)
  
     //console.log('here', tasksList?.[numTaskId - 1].description)
 
@@ -29,7 +30,13 @@ const TaskItem = () => {
         if (event.key === 'Enter') {
 
             const updatedTasksList = [...tasksList as IListTaskItem[]];
-            updatedTasksList[numTaskId - 1] = { ...updatedTasksList[numTaskId - 1], description: inputValue as string };
+            //updatedTasksList[numTaskId - 1] = { ...updatedTasksList[numTaskId - 1], description: inputValue as string };
+
+            updatedTasksList.forEach((element, index) => {
+                if (element.id === numTaskId) {
+                    updatedTasksList[index] = { ...updatedTasksList[index], description: inputValue as string }
+                }
+            });
 
             if (handleTasksListValue) {handleTasksListValue(updatedTasksList)}
         }

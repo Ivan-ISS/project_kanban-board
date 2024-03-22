@@ -7,8 +7,24 @@
     row-gap: 15px;
 }
 
-.task {
-    padding: 8px;
+.taskWrap {
+    display: flex;
+    justify-content: space-between;
     border-radius: 5px;
+    overflow: hidden;
     background: $base-white;
+    
+    .task {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .btnDelete {
+        background: transparent;
+        padding: 8px;
+
+        &:hover {
+            background: $btn-close;
+        }
+    }
 }

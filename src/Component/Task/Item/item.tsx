@@ -39,16 +39,30 @@ const TaskItem = () => {
             });
 
             if (handleTasksListValue) {handleTasksListValue(updatedTasksList)}
+            navigate(`/`)
         }
+    }
+
+    const handleClick = () => {
+            const updatedTasksList = [...tasksList as IListTaskItem[]];
+
+            updatedTasksList.forEach((element, index) => {
+                if (element.id === numTaskId) {
+                    updatedTasksList[index] = { ...updatedTasksList[index], description: inputValue as string }
+                }
+            });
+
+            if (handleTasksListValue) {handleTasksListValue(updatedTasksList)}
+            navigate(`/`)
     }
 
     return (
         <div className={style.itemTask}>
             <div className={style.heading}>
                 <h2 className={style.taskName}>{item?.name}</h2>
-                <button className={style.btnClose} onClick={() => navigate(`/`)}>&#215;</button>
+                <button className={style.btnClose} onClick={handleClick}>&#215;</button>
             </div>
-            <textarea className={inputValue && inputValue === "Описание" ? style.description : style.descriptions} value={inputValue} onChange={(handleChange)} onKeyDown={handleKeyPress} />
+            <textarea className={inputValue && inputValue === "This task has no description" ? style.description : style.descriptions} value={inputValue} onChange={(handleChange)} onKeyDown={handleKeyPress} />
         </div>
     )
 }

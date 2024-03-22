@@ -26,11 +26,11 @@ const ListTaskItem = ({ block, id, name, description }: IListTaskItem) => {
     }
 
    return (
-        <div>
+        <div className={style.taskWrap}>
             <div className={style.task} data-attr={id} onClick={() => navigate(`/${id}`)}>
                 {name}
             </div>
-            <button data-attr={id} onClick={handleClick}>del</button>
+            <button className={style.btnDelete} data-attr={id} onClick={handleClick}>&#215;</button>
         </div>
    )
 }

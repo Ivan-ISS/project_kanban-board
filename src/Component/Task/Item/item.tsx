@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import style from './item.module.scss';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { CanbanContext } from '../../Context/canban-context';
 import { IListTaskItem } from '../../../types/tasks-types';
 
 const TaskItem = () => {
+    const navigate = useNavigate()
     const { taskId } = useParams()
     const { tasksList, handleTasksListValue } = useContext(CanbanContext)
 
@@ -38,7 +39,7 @@ const TaskItem = () => {
         <div className={style.itemTask}>
             <div className={style.heading}>
                 <h2 className={style.taskName}>{item?.name}</h2>
-                <button className={style.btnClose}>&#215;</button>
+                <button className={style.btnClose} onClick={() => navigate(`/`)}>&#215;</button>
             </div>
             <textarea className={inputValue && inputValue === "Описание" ? style.description : style.descriptions} value={inputValue} onChange={(handleChange)} onKeyDown={handleKeyPress} />
         </div>

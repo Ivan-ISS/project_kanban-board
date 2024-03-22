@@ -36,10 +36,20 @@ const ListBlockItem = ({ title, idBlock }: IListBlockItem) => {
                 : null
             }
             {
+                idBlock === 1
+                ? (idBlock === 1 && addCard && addCard[idBlock]
+                ? null
+                : <ButtonAdd idBlock={idBlock} disabled={false}/>)
+                
+                : (!arrayNumBlocks?.includes(idBlock - 1)                 // Проверяем - если массив с предшествующем номером блока задач пуст, то кнопка disabled
+                ? <ButtonAdd idBlock={idBlock} disabled={true}/>
+                : <ButtonAdd idBlock={idBlock} disabled={false}/>)
+            }
+            {/* {
                 idBlock !== 1 && !arrayNumBlocks?.includes(idBlock - 1)  // Проверяем - если массив с предшествующем номером блока задач пуст, то кнопка disabled
                 ? <ButtonAdd idBlock={idBlock} disabled={true}/>
                 : <ButtonAdd idBlock={idBlock} disabled={false}/>
-            }
+            } */}
             {/* <ButtonAdd idBlock={idBlock} disabled={false}/> */}
         </div>
     )

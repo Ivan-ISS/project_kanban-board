@@ -16,7 +16,7 @@ const Footer = () => {
                 <Inscription name={"Active tasks"} meaningFirst={5} />
                 <Inscription name={"Finished tasks"} meaningFirst={10} />
             </div>
-                <Button handleClickBtn={handleClickBtn}/>
+                <Button handleClickBtn={handleClickBtn} name={"Clear board"}/>
                 <Inscription name={"Kanban board by"} meaningFirst={"ISS"} meaningSecond={2024}/>
         </footer>
    )

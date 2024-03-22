@@ -3,14 +3,15 @@ import style from './button.module.scss'
 // import { IIdBlock } from '../../../types/blocks-types';
 
 interface IButton {
-    handleClickBtn: () => void
+    handleClickBtn: () => void,
+    name: string
 }
 
-const Button = ({ handleClickBtn }: IButton) => {
+const Button = ({ handleClickBtn, name }: IButton) => {
 
     return (
             <button className={style.buttonAdd} type="button" onClick={handleClickBtn}>
-                Clear board
+                {name}
             </button>
     )
 }

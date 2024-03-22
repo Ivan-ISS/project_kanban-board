@@ -9,6 +9,16 @@
         background: $base-white;
         border-radius: 5px;
         text-align: end;
+        cursor: pointer;
+
+        &:hover {
+            background: $background-task-hover;
+        }
+
+        .iconClose {
+            width: 15px;
+            height: 15px;
+        }
     }
     
     .list {
@@ -23,6 +33,11 @@
         .item {
             padding: 8px;
             background: $base-white;
+            cursor: pointer;
+
+            &:hover {
+                background: $background-task-hover;
+            }
         }
     }
 }

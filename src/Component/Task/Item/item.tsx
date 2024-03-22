@@ -3,6 +3,7 @@ import style from './item.module.scss';
 import { useNavigate, useParams } from 'react-router';
 import { CanbanContext } from '../../Context/canban-context';
 import { IListTaskItem } from '../../../types/tasks-types';
+import iconClose from '../../../images/svg/close.svg'
 
 const TaskItem = () => {
     const navigate = useNavigate()
@@ -60,7 +61,9 @@ const TaskItem = () => {
         <div className={style.itemTask}>
             <div className={style.heading}>
                 <h2 className={style.taskName}>{item?.name}</h2>
-                <button className={style.btnClose} onClick={handleClick}>&#215;</button>
+                <button className={style.btnClose} onClick={handleClick}>
+                    <img className={style.iconClose} src={iconClose} alt="close icon" />
+                </button>
             </div>
             <textarea className={inputValue && inputValue === "This task has no description" ? style.description : style.descriptions} value={inputValue} onChange={(handleChange)} onKeyDown={handleKeyPress} />
         </div>

@@ -13,6 +13,11 @@
     border-radius: 5px;
     overflow: hidden;
     background: $base-white;
+    cursor: pointer;
+
+    &:hover {
+        background: $background-task-hover;
+    }
     
     .task {
         width: 100%;
@@ -22,9 +27,15 @@
     .btnDelete {
         background: transparent;
         padding: 8px;
+        cursor: pointer;
 
         &:hover {
             background: $btn-close;
+        }
+
+        .iconClose {
+            width: 13px;
+            height: 13px;
         }
     }
 }

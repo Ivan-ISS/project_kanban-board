@@ -3,6 +3,7 @@ import style from './task.module.scss';
 import { IListTaskItem } from '../../../types/tasks-types';
 import { useNavigate } from 'react-router';
 import { CanbanContext } from '../../Context/canban-context';
+import iconClose from '../../../images/svg/close.svg'
 
 const ListTaskItem = ({ block, id, name, description }: IListTaskItem) => {
     const { tasksList, handleTasksListValue, handlerClickAddTask } = useContext(CanbanContext)
@@ -30,7 +31,9 @@ const ListTaskItem = ({ block, id, name, description }: IListTaskItem) => {
             <div className={style.task} data-attr={id} onClick={() => navigate(`/${id}`)}>
                 {name}
             </div>
-            <button className={style.btnDelete} data-attr={id} onClick={handleClick}>&#215;</button>
+            <button className={style.btnDelete} data-attr={id} onClick={handleClick}>
+                <img className={style.iconClose} src={iconClose} alt="close icon" />
+            </button>
         </div>
    )
 }

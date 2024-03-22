@@ -14,8 +14,8 @@ const ButtonAdd = ({ idBlock, disabled }: IIdBlock) => {
 
     return (
             <button className={style.buttonAdd} type="button" disabled={disabled} onClick={() => (handlerClickAddTask ? handlerClickAddTask(idBlock) : null)}>
-                <img className={style.iconPlus} src={iconPlus} alt="plus add card" />
-                Add card
+                {/* <img className={style.iconPlus} src={iconPlus} alt="plus add card" /> */}
+                <span className={style.plus}>+</span> Add card
             </button>
     )
 }

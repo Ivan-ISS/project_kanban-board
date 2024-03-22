@@ -3,6 +3,7 @@ import style from './dropdown.module.scss';
 import { IIdBlock } from '../../../types/blocks-types';
 import DropdownListItem from './dropdown-list-item';
 import { CanbanContext } from '../../Context/canban-context';
+import iconArrow from '../../../images/svg/big-arrow.svg'
 
 const DropdownList = ({ idBlock }: IIdBlock) => {
     const { tasksList, handlerClickAddTask } = useContext(CanbanContext)
@@ -10,7 +11,7 @@ const DropdownList = ({ idBlock }: IIdBlock) => {
     return (
         <div className={style.dropdownList}>
             <div className={style.arrow} onClick={() => { if (handlerClickAddTask) {handlerClickAddTask(idBlock)} }}>
-                &#8744;
+                <img className={style.iconClose} src={iconArrow} alt="close icon" />
             </div>
             <ul className={style.list}>
                     {tasksList?.map((task, index) => {

@@ -16,9 +16,25 @@
         display: flex;
         justify-content: space-between;
 
+        .taskName {
+            font-size: $font-size-subtitle;
+        }
+
         .btnClose {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background: transparent;
+            border-radius: 10px;
             cursor: pointer;
+            padding: 8px;
+            transition: 0.3s ease-in-out;
+
+            &:hover {
+                transform: rotate(90deg);
+                box-shadow: 2px -2px 4px #0000004d;
+                background: $btn-close;
+            }
         }
     }
 }

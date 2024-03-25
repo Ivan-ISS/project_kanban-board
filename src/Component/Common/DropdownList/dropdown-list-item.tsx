@@ -19,7 +19,7 @@ const DropdownListItem = ({ text, idBlock, id }: IDropdownListItem) => {
 
         tasksList?.forEach(task => {
             if (task.id === dataAttrNum) {
-                task.block += 1              // при клике на задачу увеличиваем номера блока, в котором она находится на 1, чтобы переместить в соседний блок
+                task.block += 1              // при клике на задачу увеличиваем номер блока, в котором она находится на 1, чтобы переместить в соседний блок
             }
         });
 

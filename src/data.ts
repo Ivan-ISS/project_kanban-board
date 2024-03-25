@@ -51,6 +51,8 @@ export const tasksMock: IListTaskItem[] = [
     }
 ]
 
+export const userMenuItems: string[] = ['Profile', 'Log Out']
+
 export const inscriptionsFooter: IInscriptionsFooter[] = [
     {name: 'Active tasks'},
     {name: 'Finished tasks'},

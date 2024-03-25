@@ -5,6 +5,31 @@
     display: flex;
     flex-direction: column;
     row-gap: 15px;
+
+    max-height: 65vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: $base-white;
+    border-radius: 10px;
+    position: absolute;
+    right: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbcbcb;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #acacac;
 }
 
 .taskWrap {

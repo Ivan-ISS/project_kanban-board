@@ -11,7 +11,7 @@ const ButtonAdd = ({ idBlock, disabled }: IIdBlock) => {
     const { handlerClickAddTask } = useContext(CanbanContext)
 
     return (
-            <button className={style.buttonAdd} type="button" disabled={disabled} onClick={() => (handlerClickAddTask ? handlerClickAddTask(idBlock) : null)}>
+            <button className={style.buttonAdd} type="button" disabled={disabled} onClick={() => (handlerClickAddTask ? handlerClickAddTask(idBlock) : null)} data-testid={idBlock}>
                 <span className={style.plus}>+</span> Add card
             </button>
     )

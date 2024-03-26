@@ -54,12 +54,13 @@ const Input = ({ idBlock }: IIdBlock) => {
                         value={inputValue}
                         onChange={handleChange}
                         onKeyDown={handleKeyPress}
+                        data-testid="name-input"
                         required
                     />
                     <label className={style.label}>Введите задачу...</label>
             </div>
             <div className={style.btnPanel}>
-                <Button handleClickBtn={handleClickSubmit} name={"Submit"} disabled={inputValue === ''}/>
+                <Button handleClickBtn={handleClickSubmit} name={"Submit"} disabled={inputValue === ''} data-testid="submit-button"/>
                 <Button handleClickBtn={handleClickCancel} name={"Cancel"}/>
             </div>
         </div>

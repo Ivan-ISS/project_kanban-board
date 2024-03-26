@@ -9,17 +9,17 @@ import DropdownList from '../../Common/DropdownList/dropdown-list';
 import toArrayNumBlocks from '../../../utils/to-array-helper';
 
 const ListBlockItem = ({ title, idBlock }: IListBlockItem) => {
-    // let [arrayNumBlocks, setArrayNumBlocks] = useState<number[]>();
-    const { addCard/* , tasksList */ } = useContext(CanbanContext)
+    let [arrayNumBlocks, setArrayNumBlocks] = useState<number[]>();
+    const { addCard, tasksList } = useContext(CanbanContext)
 
     const dataFromLocalStorage = localStorage.getItem('tasksListJSON');
     const pars = dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : [];
-    const arrayNumBlocks = toArrayNumBlocks(pars)
+    arrayNumBlocks = toArrayNumBlocks(pars)
 
-    // useEffect(() => {
-    //     setArrayNumBlocks(toArrayNumBlocks(tasksList))        // перевод списка задач в массив, который содержит только элементы с номером блока задачи
-    //     console.log(arrayNumBlocks)                           // useEffect становится не нужен, т.к. есть операции выше, которые выполняются каждый раз при рендере компонента
-    // },[addCard])
+    useEffect(() => {
+        setArrayNumBlocks(toArrayNumBlocks(tasksList))        // перевод списка задач в массив, который содержит только элементы с номером блока задачи
+        console.log(arrayNumBlocks)                           // useEffect становится не нужен, т.к. есть операции выше, которые выполняются каждый раз при рендере компонента
+    },[addCard])
 
     return (
         <div className={style.block}>

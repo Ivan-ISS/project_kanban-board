@@ -20,19 +20,19 @@ export const tasksMock: IListTaskItem[] = [
         description: 'Description 1'
     },
     {
-        block: 3,
+        block: 1,
         id: 2,
         name: 'Task 2',
         description: 'Description 2'
     },
     {
-        block: 1,
+        block: 2,
         id: 3,
         name: 'Task 3',
         description: 'Description 3'
     },
     {
-        block: 4,
+        block: 3,
         id: 4,
         name: 'Task 4',
         description: 'Description 4'

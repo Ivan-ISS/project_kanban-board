@@ -10,14 +10,14 @@ const ListTaskItem = ({ block, id, name, description }: IListTaskItem) => {
     const navigate = useNavigate()
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-        let dataAttr = (event.currentTarget as HTMLButtonElement).dataset.attr
+        let dataAttr = (event.currentTarget as HTMLButtonElement).dataset.attr  // извлекаем дата-атрибут с номером id задачи
         let dataAttrNum: number
         if (dataAttr) {dataAttrNum = parseFloat(dataAttr)}
-        console.log(dataAttr)
+        // console.log(dataAttr)
 
 
         tasksList?.forEach((element, index) => {
-            if (element.id === dataAttrNum) {
+            if (element.id === dataAttrNum) {   // ищем в списке задач ту, номер id которой совпадает с номером дата-атрибута задачи (по которой кликнули)
                 tasksList.splice(index, 1)
             }
         });

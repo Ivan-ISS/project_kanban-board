@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import style from './block.module.scss';
+import { CanbanContext } from '../../Context/canban-context';
 // import { blocks } from '../../../data';
 import ListBlockItem from './list-block-item';
-import { CanbanContext } from '../../Context/canban-context';
 
 const ListBlock = () => {
     const { blocks } = useContext(CanbanContext)

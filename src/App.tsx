@@ -11,28 +11,24 @@ import Main from "./Component/Main/main";
 import Footer from "./Component/Footer/footer";
 
 function App() {
-    const [tasksList, setTasksList] = useState<IListTaskItem[] | undefined>([]);
-    const [addCard, setaddCard] = useState<IAddCard>({});  // Переменная содержащая номер блока и значение - открыто поле для инпута или селектора или закрыто
+    const [tasksList, setTasksList] = useState<IListTaskItem[] | undefined>([]);  // создание переменной для списка задач
+    const [addCard, setaddCard] = useState<IAddCard>({});  // создание переменной содержащей номер блока и значение boolean (открыто поле для инпута или селектора или закрыто)
 
     const handlerClickAddTask = (idBlock: number) => {
-        setaddCard((prevState) => ({ ...prevState, [idBlock]: !prevState[idBlock] }));
-        /* setaddCard(prevValue => !prevValue) */
-        console.log('Состояние кнопок изменилось:', addCard)
+        setaddCard((prevState) => ({ ...prevState, [idBlock]: !prevState[idBlock] }));  // функция для изменения значения переменной на противоположное для конкретного блока
+        // setaddCard(prevValue => !prevValue)
+        // console.log('Состояние кнопок изменилось:', addCard)
     }
 
     const handleTasksListValue = (tasksList: IListTaskItem[] | undefined) => {
-        setTasksList(tasksList)
-        if (tasksList) localStorage.setItem('tasksListJSON', JSON.stringify(tasksList))
-        console.log('tasksList изменился:', tasksList)
-        console.log('inLocal', JSON.parse(localStorage.getItem('tasksListJSON')!))
+        setTasksList(tasksList)                                                         // функция для установки нового значения (обновления) списка задач
+        if (tasksList) localStorage.setItem('tasksListJSON', JSON.stringify(tasksList)) // и обновления localStorage
+        // console.log('tasksList изменился:', tasksList)
     }
 
     useEffect(() => {
-        const dataFromLocalStorage = localStorage.getItem('tasksListJSON');
-        const pars = dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : [];
-        // const par = pars as IListTaskItem[]
-        console.log('local', pars)
-        setTasksList(pars)
+        const dataFromLocalStorage = localStorage.getItem('tasksListJSON');             // при первом рендере достаем данные из localStorage для вывода их на экран
+        setTasksList(dataFromLocalStorage !== null ? JSON.parse(dataFromLocalStorage) : []);
     }, [])
   
     return (
@@ -49,3 +45,5 @@ function App() {
 }
 
 export default App;
+
+// выше все исходные данные и функции для управления состоянием складываем в контекст

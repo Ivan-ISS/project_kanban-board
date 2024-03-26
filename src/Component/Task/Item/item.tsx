@@ -14,7 +14,7 @@ const TaskItem = () => {
 
     const item = tasksList?.find(item => item.id === numTaskId)
     const [inputValue, setInput] = useState(item?.description)
-    console.log('тута ', item)
+    console.log('Выбранная задача ', item)
  
     //console.log('here', tasksList?.[numTaskId - 1].description)
 

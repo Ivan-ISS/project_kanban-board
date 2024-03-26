@@ -5,4 +5,5 @@ export interface IIdBlock {
 export interface IListBlockItem {
     title: string;
     idBlock: number;
+    children?: JSX.Element
 }

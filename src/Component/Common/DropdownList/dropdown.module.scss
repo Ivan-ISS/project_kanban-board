@@ -42,3 +42,14 @@
         }
     }
 }
+
+@media (max-width: 1240px) {
+
+    .dropdownList {
+        
+        .list {
+            height: 11vh;
+            overflow-y: auto;
+        }
+    }
+}

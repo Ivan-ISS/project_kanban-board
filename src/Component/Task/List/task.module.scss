@@ -4,9 +4,9 @@
 .listTask {
     display: flex;
     flex-direction: column;
-    row-gap: 15px;
+    row-gap: 10px;
 
-    max-height: 65vh;
+    max-height: 63vh;
     overflow-y: auto;
     padding-right: 10px;
 }
@@ -39,6 +39,7 @@
     overflow: hidden;
     background: $base-white;
     cursor: pointer;
+    margin-bottom: 5px;
 
     &:hover {
         background: $background-task-hover;
@@ -48,6 +49,7 @@
     .task {
         width: 100%;
         padding: 8px;
+        word-break: break-word;
     }
 
     .btnDelete {

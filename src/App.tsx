@@ -4,7 +4,7 @@ import { IListTaskItem } from './types/tasks-types';
 import { IAddCard } from './types/selection-field';
 import { CanbanContext } from './Component/Context/canban-context';
 import { blocks } from './data';
-import { tasksMock } from './data';
+// import { tasksMock } from './data';
 import Layout from "./Component/Layout/layout";
 import Header from "./Component/Header/header";
 import Main from "./Component/Main/main";

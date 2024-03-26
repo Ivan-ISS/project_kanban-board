@@ -1,46 +1,91 @@
-# Getting Started with Create React App
+# project_kanban-board
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Для запуска проекта выполнить действия:**
 
-## Available Scripts
+- клонировать репозиторий на свой ПК: git clone https://github.com/Ivan-ISS/project_kanban-board.git;<br>
+- последовательно выполнить команды в терминале: npm install ==> npm run start;<br>
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Цель:
+***Создать канбан-доску***
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Описание проекта
+__Проект *Канбан-доска*__ - это популярный инструмент для визуализации и разбивки какой-либо задачи на этапы.<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+__Проект *Канбан-доска*__ представлен в виде приложения, которое позволяет:
+- Добавлять задачи в блок *"Backlog"* (первоначально задача вводится в поле *"Инпута"*);
+- Перемещать задачи в другие блоки в зависимости от этапа выполнения задачи (кнопка *"+ Add card"*);
+- Добавлять подробное описание задачи;
+- Удалять задачи (кнопка *"X"*).<br>
 
-### `npm test`
+**Проект написан на React**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+__Интерфейс приложения__ представлен элементами:
+- *"Поле ввода"*, - строка для ввода задач;
+- кнопка *"+ Add card"* - для открытия поля ввода или выпадающего списка доступных задач;
+- кнопка *"X"* - для удаления задачи;
+- непосредственно поле задачи - при клике доступно детальное описание, которое открывается в отдельном окне.<br>
 
-### `npm run build`
+## Технологии:
+<img src="https://img.shields.io/badge/HTML5-red?logo=html5&logoColor=white" alt="HTML5"/>&nbsp;
+<img src="https://img.shields.io/badge/CSS3-blue?logo=css3&logoColor=white" alt="CSS3"/>&nbsp;
+<img src="https://img.shields.io/badge/-Sass-DB7093?logo=sass&logoColor=white" alt="SASS"/>&nbsp;
+<img src="https://img.shields.io/badge/-TypeScript-blue?logo=typescript&logoColor=white" alt="TS"/>&nbsp;
+<img src="https://img.shields.io/badge/-JavaScript-f0db4f?logo=javaScript&logoColor=black" alt="JS"/>&nbsp;
+<img src="https://img.shields.io/badge/-React-000000?logo=React&logoColor=#00fff" alt="React"/>&nbsp;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## В проекте реализованы функциональные требования:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Исходная Канбан-доска имеет 4 блока с задачами:<br>
+&nbsp; :heavy_check_mark: Backlog - задачи, которые требуют уточнения перед тем, как брать их в работу<br>
+&nbsp; :heavy_check_mark: Ready - задачи, которые могут быть взяты в работу<br>
+&nbsp; :heavy_check_mark: In progress - задачи, которые уже в работе<br>
+&nbsp; :heavy_check_mark: Finished - законченные задачи<br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Реализован следующий функционал:<br>
+1. Добавление новой задачи<br>
+&nbsp; :heavy_check_mark: Первоначально каждая задача всегда размещается в бэклоге — для анализа. При клике на кнопку + Add card в карточке Backlog появляется поле ввода в конце списка. При этом кнопка + Add card меняется на Submit<br>
+&nbsp; :heavy_check_mark: Алгоритм добавления задачи: нажали кнопку + Add card → появилось поле для ввода → ввели название → нажали кнопку Submit — задача появилась в бэклоге<br>
+&nbsp; :heavy_check_mark: Нельзя добавить в список задачу с отсутствующим названием. Если при нажатии Submit поле с названием пустое, в список ничего не добавляется<br>
 
-### `npm run eject`
+2. Перемещение задач между списками<br>
+&nbsp; :heavy_check_mark: Задачи для списка Ready берутся из Backlog. При клике на + Add card в карточке Ready, в конце списка появляется дропдаун с задачами из списка Backlog. После клика на задачу из дропдауна она появляется в списке Ready последней<br>
+&nbsp; :heavy_check_mark: Если Backlog пустой (в списке нет задач), то кнопка + Add card в списке Ready неактивна<br>
+&nbsp; :heavy_check_mark: Остальные списки (In progress и Finished) работают по тому же принципу<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Сохранение внесённых изменений<br>
+&nbsp; :heavy_check_mark: Любые изменения, внесенные в приложение, сохраняются в localStorage<br>
+&nbsp; :heavy_check_mark: При загрузке приложения отображаются задачи, записанные в localStorage (или пустые списки, если в localStorage ничего нет)<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Детальная страница задачи<br>
+&nbsp; :heavy_check_mark: Добавлена возможность перехода на отдельную страницу какой-либо задачи в списке при клике на её заголовок<br>
+&nbsp; :heavy_check_mark: Поле с описанием должно редактируемое (для добавления описания)<br>
+&nbsp; :heavy_check_mark: При клике на крестик в правом верхнем углу осуществляется переход обратно на главную страницу<br>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. Вывод количества задач в футер<br>
+&nbsp; :heavy_check_mark: В футере выведено количество активных и завершенных задач<br>
+&nbsp; :heavy_check_mark: Active tasks — отображает количество задач в списке Backlog, Finished tasks — отображает количество задач в списке Finished<br>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+6. Выпадающее меню пользователя<br>
+&nbsp; :heavy_check_mark: Реализован выпадающий список, который появляется при клике на аватар пользователя со стрелкой<br>
 
-## Learn More
+## В проекте реализованы технические требования:
+&nbsp; :heavy_check_mark: Проект написан с помощью React<br>
+&nbsp; :heavy_check_mark: Использован компонентный подход<br>
+&nbsp; :heavy_check_mark: Использован Typescript для описания типов данных<br>
+&nbsp; :heavy_check_mark: Использованы Synthetic events для работы с событиями<br>
+&nbsp; :heavy_check_mark: Использован условный рендеринг для вывода разного состояния элементов в зависимости от действий пользователя<br>
+&nbsp; :heavy_check_mark: Для реализации отдельных страниц для каждой задачи и перехода между страницами использована библиотека react-router<br>
+&nbsp; :heavy_check_mark: Отзывчивая и адаптивная верстка (десктоп, планшет и мобильные телефоны)<br>
+&nbsp; :heavy_check_mark: Соблюдение семантической верстки<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Для запуска проекта выполнить действия:**
+
+&nbsp; :heavy_check_mark: клонировать репозиторий на свой ПК: git clone https://github.com/Ivan-ISS/project_weather-widget.git;<br>
+&nbsp; :heavy_check_mark: поставить пакеты: npm install;<br>
+&nbsp; :heavy_check_mark: выполнить команду: npm run start;<br>
+
+**Ссылка для просмотра проекта:** *временно отсутствует*

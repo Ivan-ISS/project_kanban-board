@@ -1,0 +1,9 @@
+.eslint.config.js
+tsconfig.*
+package*
+README.md
+**/*.html
+*.scss
+*.css
+dist
+config

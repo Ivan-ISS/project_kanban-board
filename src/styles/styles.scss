@@ -1,0 +1,41 @@
+@import "_colors";
+@import "_variables";
+@import "reset.scss";
+@import "../assets/fonts/fonts.css";
+
+::-webkit-scrollbar {
+    border-radius: 10px;
+    width: 12.5px;
+    height: 12.5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 10px;
+    position: absolute;
+    right: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbcbcb;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #acacac;
+}
+
+/* common helper classes -------------------------------- */
+
+.containerCommon {
+    padding: 15px 32px;
+    max-width: 1200px;
+    min-width: 270px;
+}
+
+@media (max-width: 850px) {
+
+    .containerCommon {
+        padding: 10px 15px;
+    }
+}

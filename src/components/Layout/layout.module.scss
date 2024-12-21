@@ -1,0 +1,8 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.layout {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}

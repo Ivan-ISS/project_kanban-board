@@ -1,11 +1,8 @@
 import { FunctionComponent } from 'react';
+import { Layout } from './components/Layout';
 
 const App: FunctionComponent = () => {
-    return (
-        <div>
-            <div>Прива</div>
-        </div>
-    );
+    return <Layout />;
 };
 
 export default App;

@@ -1,0 +1,13 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.main {
+    display: flex;
+    flex: 1;
+
+    .mainContainer {
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: content-box;
+    }
+}

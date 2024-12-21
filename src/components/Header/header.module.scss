@@ -1,0 +1,17 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.header {
+    background: $baseBlue;
+    color: $baseWhite;
+
+    .headerContainer {
+        min-height: 55px;
+        margin: 0 auto;
+        box-sizing: content-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 35px;
+    }
+}

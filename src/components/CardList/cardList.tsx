@@ -10,12 +10,14 @@ export interface ICardProps {
 }
 
 const CardList: FunctionComponent<ICardProps> = ({ blocks, tasks }): JSX.Element => {
-    const tasksData = tasks.find((task, index) => blocks[index].blockId === task.blockId);
-
     return (
         <div className={styles.cardList}>
             {blocks.map((block) => (
-                <Card key={block.blockId} title={block.title} tasks={tasksData?.tasks} />
+                <Card
+                    key={block.blockId}
+                    title={block.title}
+                    tasks={tasks.find((task) => block.blockId === task.blockId)?.tasks}
+                />
             ))}
         </div>
     );

@@ -1,0 +1,10 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.card {
+    width: 100%;
+    min-width: 280px;
+    padding: 12px;
+    background: $baseGray;
+    border-radius: $borderRadiusLarge;
+}

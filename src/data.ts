@@ -3,7 +3,7 @@ import { IBlocks } from './types/entityTypes';
 export const blocks: IBlocks[] = [
     {
         blockId: 1,
-        title: 'backlog',
+        title: 'Backlog',
         tasks: [
             {
                 taskId: 111,
@@ -24,10 +24,10 @@ export const blocks: IBlocks[] = [
     },
     {
         blockId: 2,
-        title: 'ready',
+        title: 'Ready',
         tasks: [
             {
-                taskId: 111,
+                taskId: 114,
                 name: 'Task 1',
                 description: 'Description 1',
             },
@@ -35,21 +35,15 @@ export const blocks: IBlocks[] = [
     },
     {
         blockId: 3,
-        title: 'in progress',
-        tasks: [
-            {
-                taskId: 111,
-                name: 'Task 1',
-                description: 'Description 1',
-            },
-        ],
+        title: 'In progress',
+        tasks: [],
     },
     {
         blockId: 4,
-        title: 'finished',
+        title: 'Finished',
         tasks: [
             {
-                taskId: 111,
+                taskId: 115,
                 name: 'Task 1',
                 description: 'Description 1',
             },

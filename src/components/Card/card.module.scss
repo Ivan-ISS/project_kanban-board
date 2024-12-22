@@ -4,7 +4,11 @@
 .card {
     width: 100%;
     min-width: 280px;
+    height: fit-content;
     padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background: $baseGray;
     border-radius: $borderRadiusLarge;
 }

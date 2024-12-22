@@ -1,0 +1,29 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+
+.button {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    font-family: inherit;
+    padding: 4px 8px;
+
+    color: $baseWhite;
+    background: $baseBlue;
+    border-radius: $borderRadiusSmall;
+    transition: $transitionHover;
+
+    &:hover {
+        box-shadow: $boxShadowSmall;
+    }
+
+    &:active {
+        box-shadow: $boxShadowSmall;
+    }
+}
+
+.disabled {
+    opacity: 0.4;
+    pointer-events: none;
+}

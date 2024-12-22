@@ -1,0 +1,8 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.lineList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}

@@ -1,0 +1,10 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.buttonPanel {
+
+    .topPanel {
+        display: flex;
+        gap: 10px;
+    }
+}

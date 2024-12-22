@@ -12,7 +12,13 @@ const CardList: FunctionComponent<ICardListProps> = ({ blocks }): JSX.Element =>
     return (
         <div className={styles.cardList}>
             {blocks.map((block) => (
-                <Card key={block.blockId} title={block.title} tasks={block.tasks} />
+                <Card
+                    key={block.blockId}
+                    numBlock={block.blockId}
+                    blocks={blocks}
+                    title={block.title}
+                    tasks={block.tasks}
+                />
             ))}
         </div>
     );

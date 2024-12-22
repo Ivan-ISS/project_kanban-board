@@ -1,9 +1,10 @@
 import styles from './card.module.scss';
-import { ITask, IBlocks } from '../../types/entityTypes';
+import { ITask } from '../../types/entityTypes';
 import { FunctionComponent } from 'react';
 
 import { LineList } from './LineList';
-import { ButtonPanel } from './ButtonPanel';
+import { TaskAddForm } from './TaskAddForm';
+import { SecondaryButton } from '../Common/Buttons/SecondaryButton';
 
 export interface ICardProps {
     title: string;
@@ -16,8 +17,8 @@ const Card: FunctionComponent<ICardProps> = ({ title, tasks, isDisabledAddTask }
         <div className={styles.card}>
             <div className={styles.title}>{title}</div>
             {tasks && <LineList tasks={tasks} />}
-            <div className={styles.inputPanel}></div>
-            <ButtonPanel isDisabledAddTask={isDisabledAddTask} />
+            {title === 'Backlog' && <TaskAddForm />}
+            <SecondaryButton text={'Add card'} symbol={'+'} isDisabled={isDisabledAddTask} />
         </div>
     );
 };

@@ -1,9 +1,12 @@
 @import "/src/styles/_colors";
 @import "/src/styles/_variables";
 
-.buttonPanel {
+.taskAddForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 
-    .topPanel {
+    .buttonPanel {
         display: flex;
         gap: 10px;
     }

@@ -1,6 +1,6 @@
-import { ITasks, IBlock } from './types/entityTypes';
+import { IBlocks } from './types/entityTypes';
 
-export const tasks: ITasks[] = [
+export const blocks: IBlocks[] = [
     {
         blockId: 1,
         title: 'backlog',
@@ -55,11 +55,4 @@ export const tasks: ITasks[] = [
             },
         ],
     },
-];
-
-export const blocks: IBlock[] = [
-    { title: 'Backlog', blockId: 1 },
-    { title: 'Ready', blockId: 2 },
-    { title: 'in Progress', blockId: 3 },
-    { title: 'Finished', blockId: 4 },
 ];

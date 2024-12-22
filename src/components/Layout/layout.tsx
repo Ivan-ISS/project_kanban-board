@@ -1,5 +1,5 @@
 import styles from './layout.module.scss';
-import { blocks, tasks } from '../../data';
+import { blocks } from '../../data';
 import { FunctionComponent } from 'react';
 
 import { Header } from '../Header';
@@ -12,7 +12,7 @@ const Layout: FunctionComponent = (): JSX.Element => {
         <div className={styles.layout}>
             <Header children={'Header'}></Header>
             <Main>
-                <CardList blocks={blocks} tasks={tasks} />
+                <CardList blocks={blocks} />
             </Main>
             <Footer children={'Footer'}></Footer>
         </div>

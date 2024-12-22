@@ -11,13 +11,12 @@ export interface ICardListProps {
 const CardList: FunctionComponent<ICardListProps> = ({ blocks }): JSX.Element => {
     return (
         <div className={styles.cardList}>
-            {blocks.map((block) => (
+            {blocks.map((block, index) => (
                 <Card
                     key={block.blockId}
-                    numBlock={block.blockId}
-                    blocks={blocks}
                     title={block.title}
                     tasks={block.tasks}
+                    isDisabledAddTask={block.blockId > 1 && !blocks[index - 1].tasks.length}
                 />
             ))}
         </div>

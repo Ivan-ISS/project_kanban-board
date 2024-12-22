@@ -5,10 +5,10 @@ import { PrimaryButton } from '../../Common/Buttons/PrimaryButton';
 import { SecondaryButton } from '../../Common/Buttons/SecondaryButton/secondaryButton';
 
 export interface IButtonPanelProps {
-    secBtnDisabled: boolean;
+    isDisabledAddTask: boolean;
 }
 
-const ButtonPanel: FunctionComponent<IButtonPanelProps> = ({ secBtnDisabled }): JSX.Element => {
+const ButtonPanel: FunctionComponent<IButtonPanelProps> = ({ isDisabledAddTask }): JSX.Element => {
     return (
         <div className={styles.buttonPanel}>
             <div className={styles.topPanel}>
@@ -16,7 +16,7 @@ const ButtonPanel: FunctionComponent<IButtonPanelProps> = ({ secBtnDisabled }): 
                 <PrimaryButton text={'Cancel'} />
             </div>
             <div className={styles.botPanel}>
-                <SecondaryButton text={'Add card'} symbol={'+'} isDisabled={secBtnDisabled} />
+                <SecondaryButton text={'Add card'} symbol={'+'} isDisabled={isDisabledAddTask} />
             </div>
         </div>
     );

@@ -7,25 +7,17 @@ import { ButtonPanel } from './ButtonPanel';
 
 export interface ICardProps {
     title: string;
-    numBlock: number;
-    blocks: IBlocks[];
     tasks: ITask[] | undefined;
+    isDisabledAddTask: boolean;
 }
 
-const Card: FunctionComponent<ICardProps> = ({ title, numBlock, blocks, tasks }): JSX.Element => {
-    let checkDisabled = blocks.find((block) => block.blockId === numBlock - 1)?.tasks.length;
-    if (numBlock === 1) {
-        checkDisabled = 1;
-    }
-
-    console.log('checkDisabled: ', checkDisabled);
-
+const Card: FunctionComponent<ICardProps> = ({ title, tasks, isDisabledAddTask }): JSX.Element => {
     return (
         <div className={styles.card}>
             <div className={styles.title}>{title}</div>
             {tasks && <LineList tasks={tasks} />}
             <div className={styles.inputPanel}></div>
-            <ButtonPanel secBtnDisabled={!checkDisabled} />
+            <ButtonPanel isDisabledAddTask={isDisabledAddTask} />
         </div>
     );
 };

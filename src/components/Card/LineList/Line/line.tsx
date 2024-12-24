@@ -1,12 +1,16 @@
 import styles from './line.module.scss';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, HTMLAttributes } from 'react';
 
-export interface ILineProps {
+export interface ILineProps extends HTMLAttributes<HTMLDivElement> {
     text: string;
 }
 
-const Line: FunctionComponent<ILineProps> = ({ text }): JSX.Element => {
-    return <div className={styles.line}>{text}</div>;
+const Line: FunctionComponent<ILineProps> = ({ text, ...props }): JSX.Element => {
+    return (
+        <div {...props} className={styles.line}>
+            {text}
+        </div>
+    );
 };
 
 export { Line };

@@ -5,7 +5,7 @@ export interface ITask {
 }
 
 export interface IBlocks {
-    title: string;
     blockId: number;
+    title: string;
     tasks: ITask[];
 }

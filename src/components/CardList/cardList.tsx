@@ -14,6 +14,8 @@ const CardList: FunctionComponent<ICardListProps> = ({ blocks }): JSX.Element =>
             {blocks.map((block, index) => (
                 <Card
                     key={block.blockId}
+                    blockId={block.blockId}
+                    blocks={blocks}
                     title={block.title}
                     tasks={block.tasks}
                     isDisabledAddTask={block.blockId > 1 && !blocks[index - 1].tasks.length}

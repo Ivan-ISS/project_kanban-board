@@ -4,11 +4,11 @@ import { FunctionComponent } from 'react';
 
 import { Task } from './Task';
 
-export interface ILineListProps {
+export interface ITaskListProps {
     tasks: ITask[];
 }
 
-const TaskList: FunctionComponent<ILineListProps> = ({ tasks }): JSX.Element => {
+const TaskList: FunctionComponent<ITaskListProps> = ({ tasks }): JSX.Element => {
     return (
         <div className={styles.taskList}>
             {tasks.map((task, index) => (

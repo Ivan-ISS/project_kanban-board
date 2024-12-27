@@ -6,7 +6,7 @@ import { KanbanContext } from '../../context/kanbanContext';
 import { TaskList } from './TaskList';
 import { TaskAddForm } from './TaskAddForm';
 import { SecondaryButton } from '../Common/Buttons/SecondaryButton';
-import { DropdownTaskList } from './DropdownTaskList';
+import { TaskListDropdown } from './TaskListDropdown';
 
 export interface ICardProps {
     block: IBlock;
@@ -30,7 +30,7 @@ const Card: FunctionComponent<ICardProps> = ({
             <div className={styles.title}>{title}</div>
             <TaskList tasks={tasks} />
             {isShowForm && <TaskAddForm />}
-            {isShowList && <DropdownTaskList blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
+            {isShowList && <TaskListDropdown blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
             <SecondaryButton
                 text={'Add card'}
                 symbol={'+'}

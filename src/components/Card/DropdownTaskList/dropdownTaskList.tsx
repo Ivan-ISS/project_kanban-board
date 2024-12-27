@@ -1,31 +1,31 @@
-import styles from './dropdownLineList.module.scss';
+import styles from './dropdownTaskList.module.scss';
 import { ITask } from '../../../types/entityTypes';
 
 import { KanbanContext } from '../../../context/kanbanContext';
 import { FunctionComponent, useContext } from 'react';
-import { DropdownLine } from './DropdownLine';
+import { DropdownTask } from './DropdownTask';
 
 export interface IDropdownLineListProps {
     blockId: number;
     tasksPrevBlock: ITask[];
 }
 
-const DropdownLineList: FunctionComponent<IDropdownLineListProps> = ({
+const DropdownTaskList: FunctionComponent<IDropdownLineListProps> = ({
     blockId,
     tasksPrevBlock,
 }): JSX.Element => {
     const { blocks, handleAddTask, handleSelectTask } = useContext(KanbanContext);
 
     return (
-        <div className={styles.dropdownLineList}>
+        <div className={styles.dropdownTaskList}>
             <div className={styles.arrow} onClick={() => handleAddTask(blockId)}>
                 &#8897;
             </div>
             <div className={styles.list}>
                 {tasksPrevBlock.map((task, index) => (
-                    <DropdownLine
+                    <DropdownTask
                         key={index}
-                        text={task.name}
+                        task={task.name}
                         onClick={() => handleSelectTask(task.taskId, blockId, blocks)}
                     />
                 ))}
@@ -34,4 +34,4 @@ const DropdownLineList: FunctionComponent<IDropdownLineListProps> = ({
     );
 };
 
-export { DropdownLineList };
+export { DropdownTaskList };

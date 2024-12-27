@@ -3,10 +3,10 @@ import { IBlock, ITask } from '../../types/entityTypes';
 import { FunctionComponent, useContext } from 'react';
 
 import { KanbanContext } from '../../context/kanbanContext';
-import { LineList } from './LineList';
+import { TaskList } from './TaskList';
 import { TaskAddForm } from './TaskAddForm';
 import { SecondaryButton } from '../Common/Buttons/SecondaryButton';
-import { DropdownLineList } from './DropdownLineList';
+import { DropdownTaskList } from './DropdownTaskList';
 
 export interface ICardProps {
     block: IBlock;
@@ -28,9 +28,9 @@ const Card: FunctionComponent<ICardProps> = ({
     return (
         <div className={styles.card}>
             <div className={styles.title}>{title}</div>
-            <LineList tasks={tasks} />
+            <TaskList tasks={tasks} />
             {isShowForm && <TaskAddForm />}
-            {isShowList && <DropdownLineList blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
+            {isShowList && <DropdownTaskList blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
             <SecondaryButton
                 text={'Add card'}
                 symbol={'+'}

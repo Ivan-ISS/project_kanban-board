@@ -29,7 +29,7 @@ const Card: FunctionComponent<ICardProps> = ({
         <div className={styles.card}>
             <div className={styles.title}>{title}</div>
             <TaskList tasks={tasks} />
-            {isShowForm && <TaskForm />}
+            {isShowForm && <TaskForm blockId={blockId} />}
             {isShowList && <TaskListDropdown blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
             <SecondaryButton
                 text={'Add card'}

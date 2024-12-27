@@ -9,15 +9,17 @@ export interface IIsAddPressed {
 export interface IKanbanContext {
     blocks: IBlock[];
     isAddPressed: IIsAddPressed;
+    handleCreateTask: (task: string, blocks: IBlock[]) => void;
     handleAddTask: (blockId: number) => void;
-    handleSelectTask: (taskId: number, blockId: number, blocks: IBlock[]) => void;
+    handleMoveTask: (taskId: number, blockId: number, blocks: IBlock[]) => void;
 }
 
 export let initialState: IKanbanContext = {
     blocks,
     isAddPressed: {},
+    handleCreateTask: () => {},
     handleAddTask: () => {},
-    handleSelectTask: () => {},
+    handleMoveTask: () => {},
 };
 
 blocks.forEach((block) => {

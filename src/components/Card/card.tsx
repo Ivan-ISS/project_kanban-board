@@ -1,39 +1,41 @@
 import styles from './card.module.scss';
-import { IBlocks, ITask } from '../../types/entityTypes';
+import { IBlock, ITask } from '../../types/entityTypes';
 import { FunctionComponent, useContext } from 'react';
 
 import { KanbanContext } from '../../context/kanbanContext';
 import { LineList } from './LineList';
 import { TaskAddForm } from './TaskAddForm';
 import { SecondaryButton } from '../Common/Buttons/SecondaryButton';
+import { DropdownLineList } from './DropdownLineList';
 
 export interface ICardProps {
-    blockId: number;
-    blocks: IBlocks[];
-    title: string;
-    tasks: ITask[] | undefined;
-    isDisabledAddTask: boolean;
+    block: IBlock;
+    tasksPrevBlock: ITask[];
+    isFirstBlock: boolean;
 }
 
 const Card: FunctionComponent<ICardProps> = ({
-    blockId,
-    blocks,
-    title,
-    tasks,
-    isDisabledAddTask,
+    block,
+    tasksPrevBlock,
+    isFirstBlock,
 }): JSX.Element => {
     const { isAddPressed, handleAddTask } = useContext(KanbanContext);
+    const { blockId, title, tasks } = block;
+
+    const isShowForm = isFirstBlock && isAddPressed[blockId];
+    const isShowList = !isFirstBlock && isAddPressed[blockId];
 
     return (
         <div className={styles.card}>
             <div className={styles.title}>{title}</div>
-            {tasks && <LineList tasks={tasks} blocks={blocks} blockId={blockId} />}
-            {blockId === 1 && isAddPressed[blockId] && <TaskAddForm />}
+            <LineList tasks={tasks} />
+            {isShowForm && <TaskAddForm />}
+            {isShowList && <DropdownLineList blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
             <SecondaryButton
                 text={'Add card'}
                 symbol={'+'}
                 onClick={() => handleAddTask(blockId)}
-                isDisabled={blockId > 1 ? isDisabledAddTask : false}
+                isDisabled={!isFirstBlock && !tasksPrevBlock.length}
             />
         </div>
     );

@@ -1,6 +1,6 @@
-import { IBlocks } from './types/entityTypes';
+import { IBlock } from './types/entityTypes';
 
-export const blocks: IBlocks[] = [
+export const blocks: IBlock[] = [
     {
         blockId: 1,
         title: 'Backlog',

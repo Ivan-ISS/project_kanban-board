@@ -1,26 +1,27 @@
 import styles from './cardList.module.scss';
-import { IBlocks } from '../../types/entityTypes';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useContext } from 'react';
 
+import { KanbanContext } from '../../context/kanbanContext';
 import { Card } from '../Card';
 
-export interface ICardListProps {
-    blocks: IBlocks[];
-}
+const CardList: FunctionComponent = (): JSX.Element => {
+    const { blocks } = useContext(KanbanContext);
 
-const CardList: FunctionComponent<ICardListProps> = ({ blocks }): JSX.Element => {
     return (
         <div className={styles.cardList}>
-            {blocks.map((block, index) => (
-                <Card
-                    key={block.blockId}
-                    blockId={block.blockId}
-                    blocks={blocks}
-                    title={block.title}
-                    tasks={block.tasks}
-                    isDisabledAddTask={block.blockId > 1 && !blocks[index - 1].tasks.length}
-                />
-            ))}
+            {blocks.map((block, index) => {
+                const isFirstBlock = block.blockId === 1;
+                const tasksPrevBlock = !isFirstBlock ? blocks[index - 1].tasks : [];
+
+                return (
+                    <Card
+                        key={index}
+                        block={block}
+                        isFirstBlock={isFirstBlock}
+                        tasksPrevBlock={tasksPrevBlock}
+                    />
+                );
+            })}
         </div>
     );
 };

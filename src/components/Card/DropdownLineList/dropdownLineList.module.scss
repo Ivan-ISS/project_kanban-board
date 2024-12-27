@@ -1,0 +1,34 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.dropdownLineList {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .arrow {
+        cursor: pointer;
+        padding: 10px;
+        text-align: end;
+
+        background: $baseWhite;
+        border-radius: $borderRadiusSmall;
+        transition: $transitionHover;
+
+        &:hover {
+            background: $baseGrayHover;
+        }
+    }
+
+    .list {
+        position: absolute;
+        top: 45px;
+        overflow: hidden;
+        width: 100%;
+
+        background: $baseWhite;
+        border-radius: $borderRadiusSmall;
+    }
+}

@@ -1,4 +1,4 @@
-import { IBlocks } from '../types/entityTypes';
+import { IBlock } from '../types/entityTypes';
 import { blocks } from '../data';
 import { createContext } from 'react';
 
@@ -7,10 +7,10 @@ export interface IIsAddPressed {
 }
 
 export interface IKanbanContext {
-    blocks: IBlocks[];
+    blocks: IBlock[];
     isAddPressed: IIsAddPressed;
     handleAddTask: (blockId: number) => void;
-    handleSelectTask: (taskId: number, blockId: number, blocks: IBlocks[]) => void;
+    handleSelectTask: (taskId: number, blockId: number, blocks: IBlock[]) => void;
 }
 
 export let initialState: IKanbanContext = {

@@ -4,7 +4,7 @@ import { FunctionComponent, useContext } from 'react';
 
 import { KanbanContext } from '../../context/kanbanContext';
 import { TaskList } from './TaskList';
-import { TaskAddForm } from './TaskAddForm';
+import { TaskForm } from './TaskForm';
 import { SecondaryButton } from '../Common/Buttons/SecondaryButton';
 import { TaskListDropdown } from './TaskListDropdown';
 
@@ -29,7 +29,7 @@ const Card: FunctionComponent<ICardProps> = ({
         <div className={styles.card}>
             <div className={styles.title}>{title}</div>
             <TaskList tasks={tasks} />
-            {isShowForm && <TaskAddForm />}
+            {isShowForm && <TaskForm />}
             {isShowList && <TaskListDropdown blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
             <SecondaryButton
                 text={'Add card'}

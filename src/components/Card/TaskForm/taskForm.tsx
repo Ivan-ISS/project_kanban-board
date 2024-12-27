@@ -1,10 +1,10 @@
-import styles from './taskAddForm.module.scss';
+import styles from './taskForm.module.scss';
 import { FunctionComponent, FormEvent, useState } from 'react';
 
 import { PrimaryButton } from '../../Common/Buttons/PrimaryButton';
 import { Input } from '../../Common/Input';
 
-const TaskAddForm: FunctionComponent = (): JSX.Element => {
+const TaskForm: FunctionComponent = (): JSX.Element => {
     const [formData, setFormData] = useState<string>('');
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -14,7 +14,7 @@ const TaskAddForm: FunctionComponent = (): JSX.Element => {
     };
 
     return (
-        <form className={styles.taskAddForm} onSubmit={handleSubmit}>
+        <form className={styles.taskForm} onSubmit={handleSubmit}>
             <Input value={formData} placeholder={'Enter task ...'} setInputValue={setFormData} />
             <div className={styles.buttonPanel}>
                 <PrimaryButton text={'Submit'} type={'submit'} isDisabled={!formData} />
@@ -24,4 +24,4 @@ const TaskAddForm: FunctionComponent = (): JSX.Element => {
     );
 };
 
-export { TaskAddForm };
+export { TaskForm };

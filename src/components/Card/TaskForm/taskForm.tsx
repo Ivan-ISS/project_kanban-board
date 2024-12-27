@@ -10,14 +10,14 @@ export interface ITaskFormProps {
 }
 
 const TaskForm: FunctionComponent<ITaskFormProps> = ({ blockId }): JSX.Element => {
-    const { blocks, handleCreateTask, handleAddTask } = useContext(KanbanContext);
+    const { blocks, handleCreateTask, handlePressAdd } = useContext(KanbanContext);
     const [formData, setFormData] = useState<string>('');
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         console.log('formData: ', formData);
         handleCreateTask(formData, blocks);
-        handleAddTask(blockId);
+        handlePressAdd(blockId);
         setFormData('');
     };
 
@@ -29,7 +29,7 @@ const TaskForm: FunctionComponent<ITaskFormProps> = ({ blockId }): JSX.Element =
                 <PrimaryButton
                     text={'Cancel'}
                     type={'button'}
-                    onClick={() => handleAddTask(blockId)}
+                    onClick={() => handlePressAdd(blockId)}
                 />
             </div>
         </form>

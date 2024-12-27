@@ -13,7 +13,7 @@ const App: FunctionComponent = (): JSX.Element => {
     const [blocks, setBlocks] = useState<IBlock[]>(defBlocks);
     const [isAddPressed, setIsAddPressed] = useState<IIsAddPressed>(initialState.isAddPressed);
 
-    const handleAddTask = (blockId: number) => {
+    const handlePressAdd = (blockId: number) => {
         setIsAddPressed((prevState) => ({ ...prevState, [blockId]: !prevState[blockId] }));
     };
 
@@ -26,7 +26,6 @@ const App: FunctionComponent = (): JSX.Element => {
     };
 
     console.log('addCard: ', isAddPressed);
-    console.log('defBlocks: ', blocks);
 
     return (
         <KanbanContext.Provider
@@ -34,7 +33,7 @@ const App: FunctionComponent = (): JSX.Element => {
                 blocks,
                 isAddPressed,
                 handleCreateTask,
-                handleAddTask,
+                handlePressAdd,
                 handleMoveTask,
             }}
         >
@@ -46,9 +45,7 @@ const App: FunctionComponent = (): JSX.Element => {
 export default App;
 
 // Все hendle переименовать на hendler
-// Переименовать kanbanContext
 // Переименовать Blocks в Cards
-// Посмотреть переменные в contsxt - может переименовать тоже
 // В карточки (в пропс) много чего передается включая и сам blocks - есть ли смысл столько всего тогда передавать, может просто blockId и blocks
 // Сделать Cards - это то что сейчас line, а все остальное просто блоки - blocks
 // Сделать типы в пропсах и в хелперах зависимыми от типов в сущностях

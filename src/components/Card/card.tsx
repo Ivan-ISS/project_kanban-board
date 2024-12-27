@@ -19,11 +19,12 @@ const Card: FunctionComponent<ICardProps> = ({
     tasksPrevBlock,
     isFirstBlock,
 }): JSX.Element => {
-    const { isAddPressed, handleAddTask } = useContext(KanbanContext);
+    const { isAddPressed, handlePressAdd } = useContext(KanbanContext);
     const { blockId, title, tasks } = block;
 
     const isShowForm = isFirstBlock && isAddPressed[blockId];
     const isShowList = !isFirstBlock && isAddPressed[blockId];
+    const isShowAdd = !isAddPressed[blockId];
 
     return (
         <div className={styles.card}>
@@ -31,12 +32,14 @@ const Card: FunctionComponent<ICardProps> = ({
             <TaskList tasks={tasks} />
             {isShowForm && <TaskForm blockId={blockId} />}
             {isShowList && <TaskListDropdown blockId={blockId} tasksPrevBlock={tasksPrevBlock} />}
-            <SecondaryButton
-                text={'Add card'}
-                symbol={'+'}
-                onClick={() => handleAddTask(blockId)}
-                isDisabled={!isFirstBlock && !tasksPrevBlock.length}
-            />
+            {isShowAdd && (
+                <SecondaryButton
+                    text={'Add card'}
+                    symbol={'+'}
+                    onClick={() => handlePressAdd(blockId)}
+                    isDisabled={!isFirstBlock && !tasksPrevBlock.length}
+                />
+            )}
         </div>
     );
 };

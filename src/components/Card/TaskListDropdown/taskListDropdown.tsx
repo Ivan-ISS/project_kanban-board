@@ -14,15 +14,15 @@ const TaskListDropdown: FunctionComponent<ITaskListDropdownProps> = ({
     blockId,
     tasksPrevBlock,
 }): JSX.Element => {
-    const { blocks, handleAddTask, handleMoveTask } = useContext(KanbanContext);
+    const { blocks, handlePressAdd, handleMoveTask } = useContext(KanbanContext);
 
     const handleClickArrow = (blockId: number) => {
-        handleAddTask(blockId);
+        handlePressAdd(blockId);
     };
 
     const handleClickTask = (taskId: number, blockId: number, blocks: IBlock[]) => {
         handleMoveTask(taskId, blockId, blocks);
-        handleAddTask(blockId);
+        handlePressAdd(blockId);
     };
 
     return (

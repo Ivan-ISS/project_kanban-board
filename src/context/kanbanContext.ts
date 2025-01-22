@@ -14,7 +14,7 @@ export interface IKanbanContext {
     handleMoveTask: (taskId: number, blockId: number, blocks: IBlock[]) => void;
 }
 
-export let initialState: IKanbanContext = {
+export const initialState: IKanbanContext = {
     blocks,
     isAddPressed: {},
     handlePressAdd: () => {},

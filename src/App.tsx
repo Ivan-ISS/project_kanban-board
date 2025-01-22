@@ -3,15 +3,15 @@ import { createTask } from './helpers/createTask';
 import { moveTask } from './helpers/moveTask';
 import { FunctionComponent, useContext, useState } from 'react';
 
-import { KanbanContext, initialState } from './context/kanbanContext';
-import { IIsAddPressed } from './context/kanbanContext';
+import { KanbanContext, IIsAddPressed } from './context/kanbanContext';
 import { Layout } from './components/Layout';
 
 const App: FunctionComponent = (): JSX.Element => {
     const { blocks: defBlocks } = useContext(KanbanContext);
+    const { isAddPressed: defIsAddPressed } = useContext(KanbanContext);
 
     const [blocks, setBlocks] = useState<IBlock[]>(defBlocks);
-    const [isAddPressed, setIsAddPressed] = useState<IIsAddPressed>(initialState.isAddPressed);
+    const [isAddPressed, setIsAddPressed] = useState<IIsAddPressed>(defIsAddPressed);
 
     const handlePressAdd = (blockId: number) => {
         setIsAddPressed((prevState) => ({ ...prevState, [blockId]: !prevState[blockId] }));
@@ -50,3 +50,4 @@ export default App;
 // Сделать Cards - это то что сейчас line, а все остальное просто блоки - blocks
 // Сделать типы в пропсах и в хелперах зависимыми от типов в сущностях
 // Убрать получение данных из контекста в App, т.к. он не обернут в Provider. Сделать получение исходного значения в нем напрямую из data
+// taskId сделать строковой переменной (так будет универсальнее)

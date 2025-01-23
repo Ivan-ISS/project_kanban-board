@@ -3,9 +3,16 @@
 
 .task {
     padding: 8px;
-    border-radius: $borderRadiusSmall;
-    background: $baseWhite;
-
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
+
+    border-radius: $borderRadiusSmall;
+    background: $baseWhite;
+    transition: $transitionHover;
+
+    &:hover {
+        box-shadow: $boxShadowSmall;
+        background: $baseGrayHover;
+    }
 }

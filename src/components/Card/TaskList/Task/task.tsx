@@ -12,7 +12,7 @@ const Task: FunctionComponent<ITaskProps> = ({ task, ...props }): JSX.Element =>
     return (
         <div {...props} className={styles.task}>
             <div>{task.name}</div>
-            <CloseButton color={'rose'} size={'small'} />
+            <CloseButton color={'burgundy'} size={'small'} />
         </div>
     );
 };

@@ -14,8 +14,8 @@
 }
 
 .small {
-    width: 19px;
-    height: 19px;
+    width: 22px;
+    height: 22px;
 }
   
 .closeButton::before,
@@ -34,9 +34,9 @@
     background: $baseBlue; 
 }
 
-.rose::before,
-.rose::after {
-    background: $baseRose; 
+.burgundy::before,
+.burgundy::after {
+    background: $baseBurgundy; 
 }
 
 .closeButton:hover::before {

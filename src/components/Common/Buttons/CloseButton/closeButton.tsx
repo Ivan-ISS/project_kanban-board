@@ -2,7 +2,7 @@ import styles from './closeButton.module.scss';
 import { FunctionComponent, HTMLAttributes } from 'react';
 
 export interface ICloseButtonProps extends HTMLAttributes<HTMLButtonElement> {
-    color: 'rose' | 'blue';
+    color: 'burgundy' | 'blue';
     size: 'small' | 'big';
 }
 

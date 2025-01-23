@@ -12,6 +12,7 @@ export interface IKanbanContext {
     handlePressAdd: (blockId: number) => void;
     handleCreateTask: (task: string, blocks: IBlock[]) => void;
     handleMoveTask: (taskId: number, blockId: number, blocks: IBlock[]) => void;
+    handleEditDescription: (description: string, taskId: number, blocks: IBlock[]) => void;
 }
 
 export const initialState: IKanbanContext = {
@@ -20,6 +21,7 @@ export const initialState: IKanbanContext = {
     handlePressAdd: () => {},
     handleCreateTask: () => {},
     handleMoveTask: () => {},
+    handleEditDescription: () => {},
 };
 
 blocks.forEach((block) => {

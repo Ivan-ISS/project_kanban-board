@@ -1,6 +1,27 @@
 @import "/src/styles/_colors";
 @import "/src/styles/_variables";
 
-.itemTask {
-    
+.cardTask {
+    width: 100%;
+    height: 100%;
+    padding: 17px 28px;
+    background: $baseWhite;
+    border-radius: $borderRadiusSmall;
+
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    .heading {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .description {
+        height: 100%;
+        opacity: 0.5;
+        resize: none;
+        outline: none;
+        font-family: 'Roboto';
+    }
 }

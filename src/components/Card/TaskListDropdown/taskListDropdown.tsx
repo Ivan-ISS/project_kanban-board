@@ -34,7 +34,7 @@ const TaskListDropdown: FunctionComponent<ITaskListDropdownProps> = ({
                 {tasksPrevBlock.map((task, index) => (
                     <TaskDropdown
                         key={index}
-                        task={task.name}
+                        task={task}
                         onClick={() => handleClickTask(task.taskId, blockId, blocks)}
                     />
                 ))}

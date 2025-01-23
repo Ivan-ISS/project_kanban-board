@@ -7,7 +7,7 @@ export const moveTask = (taskId: number, blockId: number, blocks: IBlock[]): IBl
     const previousBlockIndex = currentBlockIndex - 1;
     const previousBlock = newBlocks[previousBlockIndex];
 
-    let taskToMove: ITask;
+    let taskToMove: ITask | undefined = undefined;
     const taskIndex = previousBlock.tasks.findIndex((task) => task.taskId === taskId);
 
     taskToMove = previousBlock.tasks[taskIndex];

@@ -1,6 +1,7 @@
 import { IBlock } from './types/entityTypes';
 import { createTask } from './helpers/createTask';
 import { moveTask } from './helpers/moveTask';
+import { editDescription } from './helpers/editDescription';
 import { FunctionComponent, useContext, useState } from 'react';
 
 import { KanbanContext, IIsAddPressed } from './context/kanbanContext';
@@ -25,6 +26,10 @@ const App: FunctionComponent = (): JSX.Element => {
         setBlocks(moveTask(taskId, blockId, blocks));
     };
 
+    const handleEditDescription = (description: string, taskId: number, blocks: IBlock[]) => {
+        setBlocks(editDescription(description, taskId, blocks));
+    };
+
     console.log('addCard: ', isAddPressed);
 
     return (
@@ -35,6 +40,7 @@ const App: FunctionComponent = (): JSX.Element => {
                 handleCreateTask,
                 handlePressAdd,
                 handleMoveTask,
+                handleEditDescription,
             }}
         >
             <Layout />

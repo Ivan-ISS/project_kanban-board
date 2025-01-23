@@ -1,0 +1,58 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.closeButton {
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+    transition: $transitionHover;
+}
+
+.big {
+    width: 30px;
+    height: 30px;
+}
+
+.small {
+    width: 19px;
+    height: 19px;
+}
+  
+.closeButton::before,
+.closeButton::after {
+    content: '';
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    transition: $transitionHover;
+}
+
+.blue::before,
+.blue::after {
+    background: $baseBlue; 
+}
+
+.rose::before,
+.rose::after {
+    background: $baseRose; 
+}
+
+.closeButton:hover::before {
+    transform: rotate(-45deg);
+    box-shadow: $boxShadowIso;
+}
+
+.closeButton:hover::after {
+    transform: rotate(-135deg);
+    box-shadow: $boxShadowIso;
+}
+  
+.closeButton::before {
+    transform: rotate(45deg);
+}
+  
+.closeButton::after {
+    transform: rotate(-45deg);
+}

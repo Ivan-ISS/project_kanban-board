@@ -5,4 +5,7 @@
     padding: 8px;
     border-radius: $borderRadiusSmall;
     background: $baseWhite;
+
+    display: flex;
+    justify-content: space-between;
 }

@@ -4,7 +4,7 @@ import { FunctionComponent, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { KanbanContext } from '../../context/kanbanContext';
-import { CloseButton } from '../Common/Buttons/CloseButton';
+import { CrossButton } from '../Common/Buttons/CrossButton';
 
 const CardTask: FunctionComponent = (): JSX.Element => {
     const { blocks, handleEditDescription } = useContext(KanbanContext);
@@ -31,7 +31,7 @@ const CardTask: FunctionComponent = (): JSX.Element => {
         <div className={styles.cardTask}>
             <div className={styles.heading}>
                 <div className={styles.taskName}>{task.name}</div>
-                <CloseButton onClick={handleClickClose} color={'blue'} size={'big'} />
+                <CrossButton onClick={handleClickClose} color={'blue'} size={'big'} />
             </div>
             <textarea
                 className={styles.description}

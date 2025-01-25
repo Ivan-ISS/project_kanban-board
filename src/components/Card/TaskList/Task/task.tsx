@@ -3,7 +3,7 @@ import { ITask } from '../../../../types/entityTypes';
 import { FunctionComponent, HTMLAttributes, useContext } from 'react';
 
 import { KanbanContext } from '../../../../context/kanbanContext';
-import { CloseButton } from '../../../Common/Buttons/CloseButton';
+import { CrossButton } from '../../../Common/Buttons/CrossButton';
 
 export interface ITaskProps extends HTMLAttributes<HTMLDivElement> {
     task: ITask;
@@ -20,7 +20,7 @@ const Task: FunctionComponent<ITaskProps> = ({ task, ...props }): JSX.Element =>
     return (
         <div {...props} className={styles.task}>
             <div>{task.name}</div>
-            <CloseButton color={'burgundy'} size={'small'} onClick={handleClickClose} />
+            <CrossButton color={'burgundy'} size={'small'} onClick={handleClickClose} />
         </div>
     );
 };

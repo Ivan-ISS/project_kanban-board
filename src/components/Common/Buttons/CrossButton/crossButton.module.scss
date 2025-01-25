@@ -1,7 +1,7 @@
 @import "/src/styles/_colors";
 @import "/src/styles/_variables";
 
-.closeButton {
+.crossButton {
     background: transparent;
     position: relative;
     cursor: pointer;
@@ -18,8 +18,8 @@
     height: 22px;
 }
   
-.closeButton::before,
-.closeButton::after {
+.crossButton::before,
+.crossButton::after {
     content: '';
     position: absolute;
     top: 40%;
@@ -39,20 +39,20 @@
     background: $baseBurgundy; 
 }
 
-.closeButton:hover::before {
+.crossButton:hover::before {
     transform: rotate(-45deg);
     box-shadow: $boxShadowIso;
 }
 
-.closeButton:hover::after {
+.crossButton:hover::after {
     transform: rotate(-135deg);
     box-shadow: $boxShadowIso;
 }
   
-.closeButton::before {
+.crossButton::before {
     transform: rotate(45deg);
 }
   
-.closeButton::after {
+.crossButton::after {
     transform: rotate(-45deg);
 }

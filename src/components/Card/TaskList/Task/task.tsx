@@ -12,7 +12,7 @@ export interface ITaskProps extends HTMLAttributes<HTMLDivElement> {
 const Task: FunctionComponent<ITaskProps> = ({ task, ...props }): JSX.Element => {
     const { handleRemoveTask, blocks } = useContext(KanbanContext);
 
-    const handleClickClose = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleClickCross = (event: React.MouseEvent<HTMLButtonElement>) => {
         event.stopPropagation();
         handleRemoveTask(task.taskId, blocks);
     };
@@ -20,7 +20,7 @@ const Task: FunctionComponent<ITaskProps> = ({ task, ...props }): JSX.Element =>
     return (
         <div {...props} className={styles.task}>
             <div>{task.name}</div>
-            <CrossButton color={'burgundy'} size={'small'} onClick={handleClickClose} />
+            <CrossButton color={'burgundy'} size={'small'} onClick={handleClickCross} />
         </div>
     );
 };

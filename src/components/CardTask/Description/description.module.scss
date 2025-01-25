@@ -1,0 +1,10 @@
+@import "/src/styles/_colors";
+@import "/src/styles/_variables";
+
+.description {
+    height: 100%;
+    opacity: 0.5;
+    resize: none;
+    outline: none;
+    font-family: 'Roboto';
+}

@@ -1,10 +1,11 @@
 import styles from './cardTask.module.scss';
 import routes from '../../routes';
-import { FunctionComponent, useContext } from 'react';
+import { FunctionComponent, useState, useContext } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { KanbanContext } from '../../context/kanbanContext';
 import { CrossButton } from '../Common/Buttons/CrossButton';
+import { Description } from './Description';
 
 const CardTask: FunctionComponent = (): JSX.Element => {
     const { blocks, handleEditDescription } = useContext(KanbanContext);
@@ -15,12 +16,11 @@ const CardTask: FunctionComponent = (): JSX.Element => {
         .flatMap((block) => block.tasks)
         .find((task) => task.taskId.toString() === taskId);
 
-    const handleClickClose = () => {
-        navigate(routes.blocks());
-    };
+    const [description, setDescription] = useState(task?.description || '');
 
-    const handleChangeDescription = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        if (taskId) handleEditDescription(event.target.value, parseFloat(taskId), blocks);
+    const handleClickCross = () => {
+        if (taskId) handleEditDescription(description, parseFloat(taskId), blocks);
+        navigate(routes.blocks());
     };
 
     if (!task) {
@@ -31,13 +31,9 @@ const CardTask: FunctionComponent = (): JSX.Element => {
         <div className={styles.cardTask}>
             <div className={styles.heading}>
                 <div className={styles.taskName}>{task.name}</div>
-                <CrossButton onClick={handleClickClose} color={'blue'} size={'big'} />
+                <CrossButton onClick={handleClickCross} color={'blue'} size={'big'} />
             </div>
-            <textarea
-                className={styles.description}
-                value={task.description}
-                onChange={handleChangeDescription}
-            />
+            <Description description={description} setDescription={setDescription} />
         </div>
     );
 };

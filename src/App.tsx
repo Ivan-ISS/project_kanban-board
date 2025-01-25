@@ -12,7 +12,6 @@ import { Layout } from './components/Layout';
 
 const App: FunctionComponent = (): JSX.Element => {
     const storageData = loadData();
-    //const { blocks: defBlocks } = useContext(KanbanContext);
     const { isAddPressed: defIsAddPressed } = useContext(KanbanContext);
 
     const [blocks, setBlocks] = useState<IBlock[]>(storageData);

@@ -1,4 +1,5 @@
 import styles from './taskForm.module.scss';
+import { IBlock } from '../../../types/entityTypes';
 import { FunctionComponent, FormEvent, useState, useContext } from 'react';
 
 import { KanbanContext } from '../../../context/kanbanContext';
@@ -6,7 +7,7 @@ import { PrimaryButton } from '../../Common/Buttons/PrimaryButton';
 import { Input } from '../../Common/Input';
 
 export interface ITaskFormProps {
-    blockId: number;
+    blockId: IBlock['blockId'];
 }
 
 const TaskForm: FunctionComponent<ITaskFormProps> = ({ blockId }): JSX.Element => {
@@ -15,7 +16,6 @@ const TaskForm: FunctionComponent<ITaskFormProps> = ({ blockId }): JSX.Element =
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        console.log('formData: ', formData);
         handleCreateTask(formData, blocks);
         handlePressAdd(blockId);
         setFormData('');

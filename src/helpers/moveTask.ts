@@ -1,6 +1,10 @@
 import { IBlock, ITask } from '../types/entityTypes';
 
-export const moveTask = (taskId: number, blockId: number, blocks: IBlock[]): IBlock[] => {
+export const moveTask = (
+    taskId: ITask['taskId'],
+    blockId: IBlock['blockId'],
+    blocks: IBlock[]
+): IBlock[] => {
     const newBlocks = blocks.map((block) => ({ ...block, tasks: [...block.tasks] }));
 
     const currentBlockIndex = newBlocks.findIndex((block) => block.blockId === blockId);

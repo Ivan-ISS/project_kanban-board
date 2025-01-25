@@ -13,7 +13,7 @@ export interface ITaskListProps {
 const TaskList: FunctionComponent<ITaskListProps> = ({ tasks }): JSX.Element => {
     const navigate = useNavigate();
 
-    const handleClickTask = (taskId: number) => {
+    const handleClickTask = (taskId: ITask['taskId']) => {
         navigate(`${routes.task()}/${taskId}`);
     };
 

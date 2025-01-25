@@ -19,7 +19,7 @@ const CardTask: FunctionComponent = (): JSX.Element => {
     const [description, setDescription] = useState(task?.description || '');
 
     const handleClickCross = () => {
-        if (taskId) handleEditDescription(description, parseFloat(taskId), blocks);
+        if (taskId) handleEditDescription(taskId, description, blocks);
         navigate(routes.blocks());
     };
 

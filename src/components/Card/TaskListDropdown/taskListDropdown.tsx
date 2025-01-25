@@ -6,7 +6,7 @@ import { FunctionComponent, useContext } from 'react';
 import { TaskDropdown } from './/TaskDropdown';
 
 export interface ITaskListDropdownProps {
-    blockId: number;
+    blockId: IBlock['blockId'];
     tasksPrevBlock: ITask[];
 }
 
@@ -16,11 +16,15 @@ const TaskListDropdown: FunctionComponent<ITaskListDropdownProps> = ({
 }): JSX.Element => {
     const { blocks, handlePressAdd, handleMoveTask } = useContext(KanbanContext);
 
-    const handleClickArrow = (blockId: number) => {
+    const handleClickArrow = (blockId: IBlock['blockId']) => {
         handlePressAdd(blockId);
     };
 
-    const handleClickTask = (taskId: number, blockId: number, blocks: IBlock[]) => {
+    const handleClickTask = (
+        taskId: ITask['taskId'],
+        blockId: IBlock['blockId'],
+        blocks: IBlock[]
+    ) => {
         handleMoveTask(taskId, blockId, blocks);
         handlePressAdd(blockId);
     };

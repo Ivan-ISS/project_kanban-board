@@ -1,5 +1,5 @@
 export interface ITask {
-    taskId: number;
+    taskId: string;
     name: string;
     description: string;
 }

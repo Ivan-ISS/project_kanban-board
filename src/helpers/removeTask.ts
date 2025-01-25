@@ -1,6 +1,6 @@
-import { IBlock } from '../types/entityTypes';
+import { IBlock, ITask } from '../types/entityTypes';
 
-export const removeTask = (taskId: number, blocks: IBlock[]): IBlock[] => {
+export const removeTask = (taskId: ITask['taskId'], blocks: IBlock[]): IBlock[] => {
     const newBlocks = blocks.map((block) => ({
         ...block,
         tasks: block.tasks.map((task) => ({ ...task })),

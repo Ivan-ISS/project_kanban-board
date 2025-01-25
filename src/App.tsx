@@ -1,4 +1,4 @@
-import { IBlock } from './types/entityTypes';
+import { IBlock, ITask } from './types/entityTypes';
 import { createTask } from './helpers/createTask';
 import { removeTask } from './helpers/removeTask';
 import { moveTask } from './helpers/moveTask';
@@ -17,31 +17,37 @@ const App: FunctionComponent = (): JSX.Element => {
     const [blocks, setBlocks] = useState<IBlock[]>(storageData);
     const [isAddPressed, setIsAddPressed] = useState<IIsAddPressed>(defIsAddPressed);
 
-    const handlePressAdd = (blockId: number) => {
+    const handlePressAdd = (blockId: IBlock['blockId']) => {
         setIsAddPressed((prevState) => ({ ...prevState, [blockId]: !prevState[blockId] }));
     };
 
-    const handleCreateTask = (task: string, blocks: IBlock[]) => {
-        setBlocks(createTask(task, blocks));
+    const handleCreateTask = (taskName: ITask['name'], blocks: IBlock[]) => {
+        setBlocks(createTask(taskName, blocks));
     };
 
-    const handleRemoveTask = (taskId: number, blocks: IBlock[]) => {
+    const handleRemoveTask = (taskId: ITask['taskId'], blocks: IBlock[]) => {
         setBlocks(removeTask(taskId, blocks));
     };
 
-    const handleMoveTask = (taskId: number, blockId: number, blocks: IBlock[]) => {
+    const handleMoveTask = (
+        taskId: ITask['taskId'],
+        blockId: IBlock['blockId'],
+        blocks: IBlock[]
+    ) => {
         setBlocks(moveTask(taskId, blockId, blocks));
     };
 
-    const handleEditDescription = (description: string, taskId: number, blocks: IBlock[]) => {
-        setBlocks(editDescription(description, taskId, blocks));
+    const handleEditDescription = (
+        taskId: ITask['taskId'],
+        description: ITask['description'],
+        blocks: IBlock[]
+    ) => {
+        setBlocks(editDescription(taskId, description, blocks));
     };
 
     useEffect(() => {
         saveData(blocks);
     }, [blocks]);
-
-    console.log('addCard: ', isAddPressed);
 
     return (
         <KanbanContext.Provider
@@ -64,8 +70,6 @@ export default App;
 
 // Все hendle переименовать на hendler
 // Переименовать Blocks в Cards
-// В карточки (в пропс) много чего передается включая и сам blocks - есть ли смысл столько всего тогда передавать, может просто blockId и blocks
 // Сделать Cards - это то что сейчас line, а все остальное просто блоки - blocks
-// Сделать типы в пропсах и в хелперах зависимыми от типов в сущностях - как в description
-// Убрать получение данных из контекста в App, т.к. он не обернут в Provider. Сделать получение исходного значения в нем напрямую из data
-// taskId сделать строковой переменной (так будет универсальнее)
+// Список импортов упорядочить везде
+// В data значения по умолчанию все свести

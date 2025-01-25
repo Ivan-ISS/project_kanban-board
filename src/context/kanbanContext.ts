@@ -1,4 +1,4 @@
-import { IBlock } from '../types/entityTypes';
+import { IBlock, ITask } from '../types/entityTypes';
 import { blocks } from '../data';
 import { createContext } from 'react';
 
@@ -9,11 +9,15 @@ export interface IIsAddPressed {
 export interface IKanbanContext {
     blocks: IBlock[];
     isAddPressed: IIsAddPressed;
-    handlePressAdd: (blockId: number) => void;
-    handleCreateTask: (task: string, blocks: IBlock[]) => void;
-    handleRemoveTask: (taskId: number, blocks: IBlock[]) => void;
-    handleMoveTask: (taskId: number, blockId: number, blocks: IBlock[]) => void;
-    handleEditDescription: (description: string, taskId: number, blocks: IBlock[]) => void;
+    handlePressAdd: (blockId: IBlock['blockId']) => void;
+    handleCreateTask: (taskName: ITask['name'], blocks: IBlock[]) => void;
+    handleRemoveTask: (taskId: ITask['taskId'], blocks: IBlock[]) => void;
+    handleMoveTask: (taskId: ITask['taskId'], blockId: IBlock['blockId'], blocks: IBlock[]) => void;
+    handleEditDescription: (
+        taskId: ITask['taskId'],
+        description: ITask['description'],
+        blocks: IBlock[]
+    ) => void;
 }
 
 export const initialState: IKanbanContext = {

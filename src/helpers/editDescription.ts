@@ -1,8 +1,8 @@
-import { IBlock } from '../types/entityTypes';
+import { IBlock, ITask } from '../types/entityTypes';
 
 export const editDescription = (
-    description: string,
-    taskId: number,
+    taskId: ITask['taskId'],
+    description: ITask['description'],
     blocks: IBlock[]
 ): IBlock[] => {
     const newBlocks = blocks.map((block) => ({

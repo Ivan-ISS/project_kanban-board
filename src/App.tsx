@@ -3,16 +3,19 @@ import { createTask } from './helpers/createTask';
 import { removeTask } from './helpers/removeTask';
 import { moveTask } from './helpers/moveTask';
 import { editDescription } from './helpers/editDescription';
-import { FunctionComponent, useContext, useState } from 'react';
+import { saveData } from './helpers/saveData';
+import { loadData } from './helpers/loadData';
+import { FunctionComponent, useContext, useEffect, useState } from 'react';
 
 import { KanbanContext, IIsAddPressed } from './context/kanbanContext';
 import { Layout } from './components/Layout';
 
 const App: FunctionComponent = (): JSX.Element => {
-    const { blocks: defBlocks } = useContext(KanbanContext);
+    const storageData = loadData();
+    //const { blocks: defBlocks } = useContext(KanbanContext);
     const { isAddPressed: defIsAddPressed } = useContext(KanbanContext);
 
-    const [blocks, setBlocks] = useState<IBlock[]>(defBlocks);
+    const [blocks, setBlocks] = useState<IBlock[]>(storageData);
     const [isAddPressed, setIsAddPressed] = useState<IIsAddPressed>(defIsAddPressed);
 
     const handlePressAdd = (blockId: number) => {
@@ -34,6 +37,10 @@ const App: FunctionComponent = (): JSX.Element => {
     const handleEditDescription = (description: string, taskId: number, blocks: IBlock[]) => {
         setBlocks(editDescription(description, taskId, blocks));
     };
+
+    useEffect(() => {
+        saveData(blocks);
+    }, [blocks]);
 
     console.log('addCard: ', isAddPressed);
 

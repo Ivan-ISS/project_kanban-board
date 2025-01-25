@@ -4,6 +4,29 @@ export const blocks: IBlock[] = [
     {
         blockId: 1,
         title: 'Backlog',
+        tasks: [],
+    },
+    {
+        blockId: 2,
+        title: 'Ready',
+        tasks: [],
+    },
+    {
+        blockId: 3,
+        title: 'In progress',
+        tasks: [],
+    },
+    {
+        blockId: 4,
+        title: 'Finished',
+        tasks: [],
+    },
+];
+
+/* export const blocks: IBlock[] = [
+    {
+        blockId: 1,
+        title: 'Backlog',
         tasks: [
             {
                 taskId: 111,
@@ -49,4 +72,4 @@ export const blocks: IBlock[] = [
             },
         ],
     },
-];
+]; */

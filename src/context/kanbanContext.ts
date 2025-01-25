@@ -11,6 +11,7 @@ export interface IKanbanContext {
     isAddPressed: IIsAddPressed;
     handlePressAdd: (blockId: number) => void;
     handleCreateTask: (task: string, blocks: IBlock[]) => void;
+    handleRemoveTask: (taskId: number, blocks: IBlock[]) => void;
     handleMoveTask: (taskId: number, blockId: number, blocks: IBlock[]) => void;
     handleEditDescription: (description: string, taskId: number, blocks: IBlock[]) => void;
 }
@@ -20,6 +21,7 @@ export const initialState: IKanbanContext = {
     isAddPressed: {},
     handlePressAdd: () => {},
     handleCreateTask: () => {},
+    handleRemoveTask: () => {},
     handleMoveTask: () => {},
     handleEditDescription: () => {},
 };

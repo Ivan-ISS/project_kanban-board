@@ -1,5 +1,6 @@
 import { IBlock } from './types/entityTypes';
 import { createTask } from './helpers/createTask';
+import { removeTask } from './helpers/removeTask';
 import { moveTask } from './helpers/moveTask';
 import { editDescription } from './helpers/editDescription';
 import { FunctionComponent, useContext, useState } from 'react';
@@ -22,6 +23,10 @@ const App: FunctionComponent = (): JSX.Element => {
         setBlocks(createTask(task, blocks));
     };
 
+    const handleRemoveTask = (taskId: number, blocks: IBlock[]) => {
+        setBlocks(removeTask(taskId, blocks));
+    };
+
     const handleMoveTask = (taskId: number, blockId: number, blocks: IBlock[]) => {
         setBlocks(moveTask(taskId, blockId, blocks));
     };
@@ -38,6 +43,7 @@ const App: FunctionComponent = (): JSX.Element => {
                 blocks,
                 isAddPressed,
                 handleCreateTask,
+                handleRemoveTask,
                 handlePressAdd,
                 handleMoveTask,
                 handleEditDescription,
